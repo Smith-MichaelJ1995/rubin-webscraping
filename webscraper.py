@@ -3,15 +3,30 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By 
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as EC 
+import re
 
 # scrape for email address in provided webpage
 def fetch_email_address_by_webpage(url):
+
     # initialize webdriver 
     PATH = "C:\\Users\\micha\\Downloads\\chromedriver_win32\\chromedriver.exe" 
     driver = webdriver.Chrome(PATH)
     
     # navigate to web page 
     driver.get(url) 
+
+    # Getting current URL source code 
+    get_source = driver.page_source
+
+    # perform regular expression search on email
+    emails = re.findall("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)", get_source)
+    
+    return emails
+    # # Text you want to search
+    # search_text = "@"
+    
+    # # print True if text is present else False
+    # print(search_text in get_source)
 
     # # locate search box 
     # search = driver.find_element(with_tag_name("input")) 
