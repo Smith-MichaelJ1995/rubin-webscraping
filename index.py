@@ -1,11 +1,6 @@
 from Search import Search
 
-# instantiate search object, load in administrators data file into DataFrame
+# instantiate search object, 
+# load in administrators data file into DataFrame & perform all steps within constructor
 search = Search() 
-
-# iterating through all admins, search for contacts and log them
-search.run()
-
-# write results to .xslx
-search.write()
 

@@ -5,16 +5,15 @@ import json
 
 class Search:
     def __init__(self):
-        
-        # District Directory Data Structure: Each Key is a unique district, each Value is a list of unique email addresses belonging to that district.
-        self.masterDistrictDirectory = {}
 
         # Process File, read in all names, return list/dict with all client information
         self.personsListDataFrame = fetch_input_file()
 
+        # iterating through all admins, search for contacts and log them
+        self.run()
 
-    def write(self):
-        print(json.dumps(self.masterDistrictDirectory, indent=4))
+        # write outputs to .xslx
+        write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)
 
 
     # given the dataframe of admins - generated from .xls file attached, iterate through each person
@@ -24,77 +23,81 @@ class Search:
         # traverse through all search results one by one
         for index, row in self.personsListDataFrame.iterrows():
 
-            # Capture All Email Address Results For This Person
-            emailAddressResultsForThisPerson = []
+            # create placeholder for resulting email address from search
+            emailAddressResultForThisPerson = ""
+
+            # extract Institution Name & CSO test fields
+            institutionName = row['InstitutionName']
+            cso = row['CSO']
+            personLastName = cso.split(" ")[-1]
 
             # Combine School District Name, Faculty Name, Phone # into single searchable text that we'll query via google.
             # Generate Search String Text
-            searchStringText = "{}, {}".format(row['InstitutionName'], row['CSO'])
-            resultingWebPages = search(searchStringText, num_results=3) 
-
-            # handle case where "searchStringText" is not present in CSO text
-            if "NOT AVAILABLE" not in searchStringText:
-                searchStringText = "{} Staff Directory".format(row['InstitutionName'])
-    
+            searchStringText = "{}, {}".format(institutionName, cso)
+            resultingWebPages = search(searchStringText) 
 
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
             print()
             print("###########################################################")
-            print("PROCESSING NEW INDIVIDUAL: INDEX = {}, PERSON = {}".format(index, row['CSO']))
+            print("PROCESSING NEW INDIVIDUAL: INDEX = {}, PERSON = {}".format(index, cso))
             print("Total # Web Pages Returned For '{}' = {}".format(searchStringText, len(resultingWebPages)))
 
-            # traverse through web pages
-            for index, webpage in enumerate(resultingWebPages):
+            # handle case where "searchStringText" is not present in CSO text
+            if "NOT AVAILABLE" in searchStringText:
+                emailAddressResultForThisPerson = "skipping: no name present in CSO text"
+            else:
 
-                # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
-                print("PROCESSING NEW WEBPAGE: INDEX = {}, URL = {}".format(index, webpage))
+                # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
+                emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
+
+                # print results to user
+                print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
+
+                # record resulting email address, continue processing
+                self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
                 
-                # call separate selenium module to gather all email addresses located on this webpage
-                emailAddressesForThisWebPage = fetch_email_addresses_by_webpage(webpage)
 
-                # remove duplicates within email address list
-                emailAddressesForThisWebPage = list(set(emailAddressesForThisWebPage))
+    # given web pages returned by search, iterate through them and search for email addresses
+    def traverse_through_web_pages(self, resultingWebPages, personLastName):
 
-                # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
-                print("TOTAL # OF EMAIL ADDRESSES RETURNED FOR THIS WEBPAGE: {}".format(len(emailAddressesForThisWebPage)))
-                
-                # traverse all email addresses returned by this webpage
-                for emailAddress in emailAddressesForThisWebPage:
+        # traverse through web pages
+        for index, webpage in enumerate(resultingWebPages):
 
-                    # extrapolate person from district email domain name
-                    person, domain = emailAddress.split("@")
-
-                    # has this perticular email address been identified through results of a previous searchStringText?
-                    if self.hasThisEmailAddressBeenReturnedWhenSearchingPreviousPerson(person, domain):
-                        print("Igoring Email Address: {}, it has been identified on a prior search for a previous person or 'searchStringText'".format(emailAddress)) 
-                    else:
-                        self.masterDistrictDirectory[domain].append(emailAddress)
-                        print("Unique Email Address Found Related to Search String ({}): {}".format(searchStringText, emailAddress))
-
-            break
-
-    # Given District Directory Data Structure & Provided Email Address, Determine if this new email address should be added to list
-    def hasThisEmailAddressBeenReturnedWhenSearchingPreviousPerson(self, person, domain):
-
-        # have we identified this domain before?
-        if domain in self.masterDistrictDirectory:
-
-            # traverse through all email addresses identified for this domain
-            for previouslyDefinedEmailAddress in self.masterDistrictDirectory[domain]:
-
-                # does this person's email address exist already in the list of emails we've captured for this school district?
-                if person.lower() in previouslyDefinedEmailAddress.lower():
-
-                    # inform caller that we should not add this emailAddress to the list
-                    return True
+            # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
+            print("PROCESSING NEW WEBPAGE: INDEX = {}, URL = {}".format(index, webpage))
             
-            # if we've reached this point, then the proposed person has not been identified within the "previouslyDefinedEmailAddress"
-            return False
+            # call separate selenium module to gather all email addresses located on this webpage
+            emailAddressesForThisWebPage = fetch_email_addresses_by_webpage(webpage)
 
-        else:
+            # remove duplicates within email address list
+            emailAddressesForThisWebPage = list(set(emailAddressesForThisWebPage))
 
-            # domain has not been identified before, create new entry for it in our masterDistrictDictionary
-            self.masterDistrictDirectory[domain] = []
+            # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
+            print("TOTAL # OF EMAIL ADDRESSES RETURNED FOR THIS WEBPAGE: {}".format(len(emailAddressesForThisWebPage)))
+
+            # search all email addresses, search till we find that of person we're targeting
+            personsEmailAddress, found = self.searchEmailsForTargetPerson(emailAddressesForThisWebPage, personLastName)
             
-            # inform caller that we should add this emailAddress to the list
-            return False
+            # halt the traversal if we think we've found this person's email address
+            if found == True:
+                return personsEmailAddress
+
+        
+        # if we made it this far, we didn't find any results and are giving up for this person
+        return "No Results Found For Person With Last Name Of: {}".format(personLastName)
+
+    # Given Returned Addresses On This Webpage, decipher of any of them match target person
+    # This search isn't perfect: if it encounters another address of another person with the same last name, it will return the address. 
+    # This search isn't perfect: If last name isn't spelled exactly in email or abbreviated, it will be missed
+    def searchEmailsForTargetPerson(self, emailAddressesForThisWebPage, personLastName):
+
+        # traverse all email addresses returned by this webpage
+        for emailAddress in emailAddressesForThisWebPage:
+
+            # determine: is last name within email address?
+            if personLastName.lower() in emailAddress.lower():
+                return emailAddress, True
+
+
+        # no results found
+        return "", False 

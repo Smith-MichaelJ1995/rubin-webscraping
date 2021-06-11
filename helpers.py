@@ -40,12 +40,8 @@ def fetch_input_file():
     # return dataframe to caller
     return df
 
-# Write DataFrame to 
-def write_output_file(fileName):
-
-    # convert dict to DataFrame if neccessary
-    if type(df) is dict:
-        df = pd.DataFrame(data=df, index=[0])
+# Write DataFrame to xlsx
+def write_output_file(fileName, df):
 
     # create excel writer object
     writer = pd.ExcelWriter(fileName)
