@@ -1,5 +1,5 @@
 from googlesearch import search
-from webscraper import fetch_email_address_by_webpage
+from webscraper import fetch_email_addresses_by_webpage
 import pandas as pd 
 
 # Read in .XSLX file in here
@@ -34,7 +34,11 @@ def write_output_file(df, fileName):
     writer.save()
 
 # Given District Directory Data Structure & Provided Email Address, Determine if this new email address should be added to list
-def hasThisEmailAddressBeenReturnedForPriorSearchStringText(masterDistrictDirectory, person, domain):
+def hasThisEmailAddressBeenReturnedWhenSearchingPreviousPerson(masterDistrictDirectory, person, domain):
+
+    print("masterDistrictDirectory = {}".format(masterDistrictDirectory))
+    print("type(masterDistrictDirectory) = {}".format(type(masterDistrictDirectory)))
+    
 
     # have we identified this domain before?
     if domain in masterDistrictDirectory:
@@ -99,10 +103,10 @@ for index, row in personsListDataFrame.iterrows():
     for index, webpage in enumerate(resultingWebPages):
 
         # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
-        print("PROCESSING NEW WEBPAGE: INDEX = {}, PERSON = {}".format(index, webpage))
+        print("PROCESSING NEW WEBPAGE: INDEX = {}, URL = {}".format(index, webpage))
         
         # call separate selenium module to gather all email addresses located on this webpage
-        emailAddressesForThisWebPage = fetch_email_address_by_webpage(webpage)
+        emailAddressesForThisWebPage = fetch_email_addresses_by_webpage(webpage)
 
         # remove duplicates within email address list
         emailAddressesForThisWebPage = list(set(emailAddressesForThisWebPage))
@@ -117,7 +121,11 @@ for index, row in personsListDataFrame.iterrows():
 
                 # extrapolate district domain name
                 person, domain = emailAddress.split("@")
-                masterDistrictDirectory, duplicate = hasThisEmailAddressBeenReturnedForPriorSearchStringText(masterDistrictDirectory, person, domain)
+
+                print("masterDistrictDirectory = {}".format(masterDistrictDirectory))
+
+
+                masterDistrictDirectory, duplicate = hasThisEmailAddressBeenReturnedWhenSearchingPreviousPerson(masterDistrictDirectory, person, domain)
 
                 # has this perticular email address been identified through results of a previous searchStringText?
                 if duplicate:

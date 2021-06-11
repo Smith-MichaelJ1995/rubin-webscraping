@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import re
 
 # scrape for email address in provided webpage
-def fetch_email_address_by_webpage(url):
+def fetch_email_addresses_by_webpage(url):
 
     # initialize webdriver 
     PATH = "C:\\Users\\micha\\Downloads\\chromedriver_win32\\chromedriver.exe" 
