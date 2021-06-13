@@ -10,14 +10,21 @@ import re
 def fetch_email_addresses_by_webpage(url):
 
     # initialize webdriver 
-    PATH = "C:\\Users\\micha\\Downloads\\chromedriver_win32\\chromedriver.exe" 
-    driver = webdriver.Chrome(PATH)
+    # PATH = "C:\\Users\\micha\\Downloads\\chromedriver_win32\\chromedriver.exe" 
+    # driver = webdriver.Chrome(PATH)
+
+    # initialize webdriver - using firefox to limit requests to both browsers.
+    driver = webdriver.Firefox(executable_path=r'C:\Users\micha\Downloads\geckodriver\geckodriver.exe')
     
-    # navigate to web page 
-    driver.get(url) 
+    # navigate to web page
+    driver.set_page_load_timeout(30) 
+    driver.get(url)
 
     # Getting current URL source code 
     get_source = driver.page_source
+
+    # close the driver, we've captured the data we've needed
+    driver.quit()
 
     # perform regular expression search on email
     emails = re.findall("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)", get_source)
@@ -29,7 +36,7 @@ def fetch_email_addresses_by_webpage(url):
 def fetch_input_file():
 
     # specify path of provided NYS School Admins Directory
-    path = "SEDdir.xls"
+    path = "SEDdir1.xls"
 
     # process input file into dataframe
     df = pd.read_excel(path)

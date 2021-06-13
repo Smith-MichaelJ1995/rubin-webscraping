@@ -1,6 +1,7 @@
 from googlesearch import search
 from helpers import fetch_email_addresses_by_webpage, fetch_input_file, write_output_file
-import json
+import time
+import random
 
 
 class Search:
@@ -34,18 +35,23 @@ class Search:
             # Combine School District Name, Faculty Name, Phone # into single searchable text that we'll query via google.
             # Generate Search String Text
             searchStringText = "{}, {}".format(institutionName, cso)
-            resultingWebPages = search(searchStringText) 
+            resultingWebPages = search(searchStringText, num_results=5)
+
+            # remove spam or other random crap.. avoiding viruses
+            resultingWebPages = self.filterLinksForOrgOrEdu(resultingWebPages) 
 
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
-            print()
-            print("###########################################################")
+            # print()
+            # print("###########################################################")
             print("PROCESSING NEW INDIVIDUAL: INDEX = {}, PERSON = {}".format(index, cso))
-            print("Total # Web Pages Returned For '{}' = {}".format(searchStringText, len(resultingWebPages)))
+            # print("Total # Web Pages Returned For '{}' = {}".format(searchStringText, len(resultingWebPages)))
 
             # handle case where "searchStringText" is not present in CSO text
             if "NOT AVAILABLE" in searchStringText:
                 emailAddressResultForThisPerson = "skipping: no name present in CSO text"
             else:
+
+                # print("resulting credible links for search string: {}".format(resultingWebPages))
 
                 # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
                 emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
@@ -53,8 +59,14 @@ class Search:
                 # print results to user
                 print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
 
-                # record resulting email address, continue processing
-                self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
+            # record resulting email address, continue processing
+            self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
+
+            # slow down search too avoid 429 too many requests
+            pauseTime = random.randint(1, 60)
+            print("Sleeping for {} seconds".format(pauseTime))
+            print("")
+            time.sleep(pauseTime)
                 
 
     # given web pages returned by search, iterate through them and search for email addresses
@@ -64,7 +76,7 @@ class Search:
         for index, webpage in enumerate(resultingWebPages):
 
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
-            print("PROCESSING NEW WEBPAGE: INDEX = {}, URL = {}".format(index, webpage))
+            # print("PROCESSING NEW WEBPAGE: INDEX = {}, URL = {}".format(index, webpage))
             
             # call separate selenium module to gather all email addresses located on this webpage
             emailAddressesForThisWebPage = fetch_email_addresses_by_webpage(webpage)
@@ -73,7 +85,7 @@ class Search:
             emailAddressesForThisWebPage = list(set(emailAddressesForThisWebPage))
 
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
-            print("TOTAL # OF EMAIL ADDRESSES RETURNED FOR THIS WEBPAGE: {}".format(len(emailAddressesForThisWebPage)))
+            # print("TOTAL # OF EMAIL ADDRESSES RETURNED FOR THIS WEBPAGE: {}".format(len(emailAddressesForThisWebPage)))
 
             # search all email addresses, search till we find that of person we're targeting
             personsEmailAddress, found = self.searchEmailsForTargetPerson(emailAddressesForThisWebPage, personLastName)
@@ -101,3 +113,17 @@ class Search:
 
         # no results found
         return "", False 
+
+    def filterLinksForOrgOrEdu(self, links):
+        # acceptable webpages
+        validLinks = []
+
+        # iterate through all links
+        for link in links:
+
+            # I only want links with .org or .edu
+            if ".edu" in link or ".org" in link:
+                validLinks.append(link)
+
+        # provide valid links back to caller
+        return validLinks
