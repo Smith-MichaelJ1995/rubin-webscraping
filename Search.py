@@ -30,15 +30,12 @@ class Search:
             # extract Institution Name & CSO test fields
             institutionName = row['InstitutionName']
             cso = row['CSO']
+            emailFieldContents = row['RelatedEmailAddresses']
             personLastName = cso.split(" ")[-1]
 
             # Combine School District Name, Faculty Name, Phone # into single searchable text that we'll query via google.
             # Generate Search String Text
-            searchStringText = "{}, {}".format(institutionName, cso)
-            resultingWebPages = search(searchStringText, num_results=5)
-
-            # remove spam or other random crap.. avoiding viruses
-            resultingWebPages = self.filterLinksForOrgOrEdu(resultingWebPages) 
+            searchStringText = "{}, {}, email address contact".format(institutionName, cso)
 
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
             # print()
@@ -47,26 +44,43 @@ class Search:
             # print("Total # Web Pages Returned For '{}' = {}".format(searchStringText, len(resultingWebPages)))
 
             # handle case where "searchStringText" is not present in CSO text
-            if "NOT AVAILABLE" in searchStringText:
+            if "NOT AVAILABLE" in searchStringText: 
                 emailAddressResultForThisPerson = "skipping: no name present in CSO text"
+            elif index < 190:
+                pass
+            elif index >= 500:
+                break
             else:
 
-                # print("resulting credible links for search string: {}".format(resultingWebPages))
+                # attempting to handle unforseen error and update data structure on output file
+                try:
+                    # perform google search
+                    resultingWebPages = search(searchStringText, num_results=5)
 
-                # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
-                emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
+                    # remove spam or other random crap.. avoiding viruses
+                    resultingWebPages = self.filterLinksForOrgOrEduOrUS(resultingWebPages) 
 
-                # print results to user
-                print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
+                    # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
+                    emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
 
-            # record resulting email address, continue processing
-            self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
+                    # print results to user
+                    print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
 
-            # slow down search too avoid 429 too many requests
-            pauseTime = random.randint(1, 60)
-            print("Sleeping for {} seconds".format(pauseTime))
-            print("")
-            time.sleep(pauseTime)
+                    # record resulting email address, continue processing
+                    self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
+
+                    # slow down search too avoid 429 too many requests
+                    pauseTime = random.randint(1, 30)
+                    print("Sleeping for {} seconds".format(pauseTime))
+                    print("")
+                    time.sleep(pauseTime)
+
+                except:
+
+                    print("Error has occured.. writing data structure to file")
+
+                    # write outputs to .xslx
+                    write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)
                 
 
     # given web pages returned by search, iterate through them and search for email addresses
@@ -103,6 +117,10 @@ class Search:
     # This search isn't perfect: If last name isn't spelled exactly in email or abbreviated, it will be missed
     def searchEmailsForTargetPerson(self, emailAddressesForThisWebPage, personLastName):
 
+        # handle the irish last name cases: o'shea, o'connor, o'brien.. need to remove "'" character
+        if "'" in personLastName:
+            personLastName = personLastName.replace("'",'')
+
         # traverse all email addresses returned by this webpage
         for emailAddress in emailAddressesForThisWebPage:
 
@@ -114,7 +132,7 @@ class Search:
         # no results found
         return "", False 
 
-    def filterLinksForOrgOrEdu(self, links):
+    def filterLinksForOrgOrEduOrUS(self, links):
         # acceptable webpages
         validLinks = []
 
@@ -122,7 +140,7 @@ class Search:
         for link in links:
 
             # I only want links with .org or .edu
-            if ".edu" in link or ".org" in link:
+            if ".edu" in link or ".org" in link or ".us" in link:
                 validLinks.append(link)
 
         # provide valid links back to caller
