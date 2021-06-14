@@ -21,9 +21,6 @@ class Search:
     # then begin searching for emails
     def run(self):
 
-        # keep track of correct email addresses identified
-        emailFoundCount = 0
-
         # traverse through all search results one by one
         for index, row in self.personsListDataFrame.iterrows():
 
@@ -36,9 +33,6 @@ class Search:
             emailFieldContents = row['RelatedEmailAddresses']
             personLastName = cso.split(" ")[-1]
 
-            if type(emailFieldContents) != str:
-                emailFieldContents = ""
-
             # Combine School District Name, Faculty Name, Phone # into single searchable text that we'll query via google.
             # Generate Search String Text
             searchStringText = "{}, {}, email address contact".format(institutionName, cso)
@@ -50,47 +44,43 @@ class Search:
             # print("Total # Web Pages Returned For '{}' = {}".format(searchStringText, len(resultingWebPages)))
 
             # handle case where "searchStringText" is not present in CSO text
-            if "@" not in emailFieldContents and emailFieldContents != "None": 
+            if "NOT AVAILABLE" in searchStringText: 
                 emailAddressResultForThisPerson = "None"
-                self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
-            elif index >= 1000:
-                break
-            elif emailFieldContents == "None":
+            elif index < 1100:
                 pass
+            elif index >= 1110:
+                break
             else:
-                emailFoundCount += 1 
 
-        print("Total Amount Of Email Addresses Found = {}".format(emailFoundCount))
+                # attempting to handle unforseen error and update data structure on output file
+                try:
+                    # perform google search
+                    resultingWebPages = search(searchStringText, num_results=5)
 
-            #     # attempting to handle unforseen error and update data structure on output file
-            #     try:
-            #         # perform google search
-            #         resultingWebPages = search(searchStringText, num_results=5)
+                    # remove spam or other random crap.. avoiding viruses
+                    resultingWebPages = self.filterLinksForOrgOrEduOrUS(resultingWebPages) 
 
-            #         # remove spam or other random crap.. avoiding viruses
-            #         resultingWebPages = self.filterLinksForOrgOrEduOrUS(resultingWebPages) 
+                    # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
+                    emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
 
-            #         # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
-            #         emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
+                    # print results to user
+                    print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
 
-            #         # print results to user
-            #         print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
+                    # record resulting email address, continue processing
+                    self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
 
-            #         # record resulting email address, continue processing
-            #         self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
+                    # slow down search too avoid 429 too many requests
+                    pauseTime = random.randint(1, 60)
+                    print("Sleeping for {} seconds".format(pauseTime))
+                    print("")
+                    time.sleep(pauseTime)
 
-            #         # slow down search too avoid 429 too many requests
-            #         pauseTime = random.randint(1, 30)
-            #         print("Sleeping for {} seconds".format(pauseTime))
-            #         print("")
-            #         time.sleep(pauseTime)
+                except:
 
-            #     except:
+                    print("Error has occured.. writing data structure to file")
 
-            #         print("Error has occured.. writing data structure to file")
-
-            #         # write outputs to .xslx
-            #         write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)
+                    # write outputs to .xslx
+                    write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)
                 
 
     # given web pages returned by search, iterate through them and search for email addresses
@@ -113,7 +103,7 @@ class Search:
 
             # search all email addresses, search till we find that of person we're targeting
             personsEmailAddress, found = self.searchEmailsForTargetPerson(emailAddressesForThisWebPage, personLastName)
-            
+
             # halt the traversal if we think we've found this person's email address
             if found == True:
                 return personsEmailAddress
@@ -149,8 +139,8 @@ class Search:
         # iterate through all links
         for link in links:
 
-            # I only want links with .org or .edu
-            if ".edu" in link or ".org" in link or ".us" in link:
+            # I only want links with .org .edu .us in my links, I also must have https
+            if (".edu" in link or ".org" in link or ".us" in link) and "https" in link:
                 validLinks.append(link)
 
         # provide valid links back to caller
