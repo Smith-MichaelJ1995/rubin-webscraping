@@ -50,11 +50,13 @@ class Search:
             # print("Total # Web Pages Returned For '{}' = {}".format(searchStringText, len(resultingWebPages)))
 
             # handle case where "searchStringText" is not present in CSO text
-            if "@" not in emailFieldContents: 
+            if "@" not in emailFieldContents and emailFieldContents != "None": 
                 emailAddressResultForThisPerson = "None"
                 self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
-            elif index >= 500:
+            elif index >= 1000:
                 break
+            elif emailFieldContents == "None":
+                pass
             else:
                 emailFoundCount += 1 
 
