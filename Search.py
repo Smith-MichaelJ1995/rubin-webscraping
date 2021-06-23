@@ -35,7 +35,7 @@ class Search:
 
             # Combine School District Name, Faculty Name, Phone # into single searchable text that we'll query via google.
             # Generate Search String Text
-            searchStringText = "{}, {}, email address contact".format(institutionName, cso)
+            searchStringText = "{}, {}, email address contact information".format(institutionName, cso)
 
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
             # print()
@@ -46,41 +46,47 @@ class Search:
             # handle case where "searchStringText" is not present in CSO text
             if "NOT AVAILABLE" in searchStringText: 
                 emailAddressResultForThisPerson = "None"
-            elif index < 1100:
+            elif index <= 3200:
                 pass
-            elif index >= 2000:
+            elif index >= 3500:
                 break
             else:
 
-                # attempting to handle unforseen error and update data structure on output file
-                try:
-                    # perform google search
-                    resultingWebPages = search(searchStringText, num_results=5)
+                if "@" in emailFieldContents: 
+                    pass
+                else:
 
-                    # remove spam or other random crap.. avoiding viruses
-                    resultingWebPages = self.filterLinksForOrgOrEduOrUS(resultingWebPages) 
+                    # attempting to handle unforseen error and update data structure on output file
+                    try:
+                        # perform google search
+                        resultingWebPages = search(searchStringText, num_results=10)
 
-                    # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
-                    emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
+                        # remove spam or other random crap.. avoiding viruses
+                        resultingWebPages = self.filterLinksForOrgOrEduOrUS(resultingWebPages) 
 
-                    # print results to user
-                    print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
+                        # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
+                        emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
 
-                    # record resulting email address, continue processing
-                    self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
+                        # print results to user
+                        print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
 
-                    # slow down search too avoid 429 too many requests
-                    pauseTime = random.randint(1, 60)
-                    print("Sleeping for {} seconds".format(pauseTime))
-                    print("")
-                    time.sleep(pauseTime)
+                        # record resulting email address, continue processing
+                        self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
 
-                except:
+                        # slow down search too avoid 429 too many requests
+                        pauseTime = random.randint(1, 45)
+                        print("Sleeping for {} seconds".format(pauseTime))
+                        print("")
+                        time.sleep(pauseTime)
 
-                    print("Error has occured.. writing data structure to file")
+                    except Exception as e:
 
-                    # write outputs to .xslx
-                    write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)
+                        print("")
+                        print(e)
+                        print("Error has occured.. writing data structure to file")
+
+                        # write outputs to .xslx
+                        write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)
                 
 
     # given web pages returned by search, iterate through them and search for email addresses
@@ -110,7 +116,7 @@ class Search:
 
         
         # if we made it this far, we didn't find any results and are giving up for this person
-        return "No Results Found For Person With Last Name Of: {}".format(personLastName)
+        return "None"
 
     # Given Returned Addresses On This Webpage, decipher of any of them match target person
     # This search isn't perfect: if it encounters another address of another person with the same last name, it will return the address. 

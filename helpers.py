@@ -17,7 +17,6 @@ def fetch_email_addresses_by_webpage(url):
     profile = webdriver.FirefoxProfile()
     profile.set_preference("http.response.timeout", 10)
     profile.set_preference("dom.max_script_run_time", 10)
-    
 
     # navigate to web page
     driver = webdriver.Firefox(profile)
