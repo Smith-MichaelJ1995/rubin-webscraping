@@ -46,9 +46,9 @@ class Search:
             # handle case where "searchStringText" is not present in CSO text
             if "NOT AVAILABLE" in searchStringText: 
                 emailAddressResultForThisPerson = "None"
-            elif index < 3499:
+            elif index < 3670:
                 pass
-            elif index >= 3670:
+            elif index >= 3800:
                 break
             else:
 
