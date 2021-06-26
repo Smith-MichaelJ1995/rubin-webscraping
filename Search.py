@@ -59,7 +59,7 @@ class Search:
                     # attempting to handle unforseen error and update data structure on output file
                     try:
                         # perform google search
-                        resultingWebPages = search(searchStringText, num_results=10)
+                        resultingWebPages = search(searchStringText, num_results=7)
 
                         # remove spam or other random crap.. avoiding viruses
                         resultingWebPages = self.filterLinksForOrgOrEduOrUS(resultingWebPages) 
