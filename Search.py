@@ -46,7 +46,7 @@ class Search:
             # handle case where "searchStringText" is not present in CSO text
             if "NOT AVAILABLE" in searchStringText: 
                 emailAddressResultForThisPerson = "None"
-            elif index < 4455:
+            elif index < 4464:
                 pass
             elif index >= 4580:
                 break
@@ -64,15 +64,15 @@ class Search:
                         # remove spam or other random crap.. avoiding viruses
                         resultingWebPages = self.filterLinksForOrgOrEduOrUS(resultingWebPages) 
 
+                        # handle '-' character in last names
+                        if "-" in personLastName:
+                            personLastName = personLastName.split("-")[0]
+
                         # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
                         emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
 
                         # print results to user
                         print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
-
-                        # handle '-' character in last names
-                        if "-" in personLastName:
-                            personLastName = personLastName.split("-")[0]
 
                         # record resulting email address, continue processing
                         self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
