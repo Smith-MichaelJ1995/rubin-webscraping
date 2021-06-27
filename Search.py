@@ -46,9 +46,9 @@ class Search:
             # handle case where "searchStringText" is not present in CSO text
             if "NOT AVAILABLE" in searchStringText: 
                 emailAddressResultForThisPerson = "None"
-            elif index < 4000:
+            elif index < 4455:
                 pass
-            elif index >= 4500:
+            elif index >= 4580:
                 break
             else:
 
@@ -69,6 +69,10 @@ class Search:
 
                         # print results to user
                         print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
+
+                        # handle '-' character in last names
+                        if "-" in personLastName:
+                            personLastName = personLastName.split("-")[0]
 
                         # record resulting email address, continue processing
                         self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
