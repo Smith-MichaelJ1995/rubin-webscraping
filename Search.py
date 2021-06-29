@@ -21,6 +21,8 @@ class Search:
     # then begin searching for emails
     def run(self):
 
+        count = 0
+
         # traverse through all search results one by one
         for index, row in self.personsListDataFrame.iterrows():
 
@@ -46,15 +48,13 @@ class Search:
             # handle case where "searchStringText" is not present in CSO text
             if "NOT AVAILABLE" in searchStringText: 
                 emailAddressResultForThisPerson = "None"
-            elif index < 5745:
-                pass
-            elif index >= 6500:
-                break
             else:
 
                 if "@" in emailFieldContents: 
+                    count += 1
                     pass
                 else:
+                    pass
 
                     # attempting to handle unforseen error and update data structure on output file
                     try:
@@ -91,6 +91,8 @@ class Search:
 
                         # write outputs to .xslx
                         write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)
+
+        print("Total # of emails: {}".format(count))        
                 
 
     # given web pages returned by search, iterate through them and search for email addresses
