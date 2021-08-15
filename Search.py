@@ -21,7 +21,7 @@ class Search:
     # then begin searching for emails
     def run(self):
 
-        count = 0
+        notFromNYcount = 0
 
         # traverse through all search results one by one
         for index, row in self.personsListDataFrame.iterrows():
@@ -35,65 +35,19 @@ class Search:
             emailFieldContents = row['RelatedEmailAddresses']
             personLastName = cso.split(" ")[-1]
 
-            # Combine School District Name, Faculty Name, Phone # into single searchable text that we'll query via google.
-            # Generate Search String Text
-            searchStringText = "{}, {}, email address contact information".format(institutionName, cso)
-
-            # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
-            # print()
-            # print("###########################################################")
-            print("PROCESSING NEW INDIVIDUAL: INDEX = {}, PERSON = {}".format(index, cso))
-            # print("Total # Web Pages Returned For '{}' = {}".format(searchStringText, len(resultingWebPages)))
-
-            # handle case where "searchStringText" is not present in CSO text
-            if "NOT AVAILABLE" in searchStringText: 
+            if ((".nj." in emailFieldContents) or (".ct." in emailFieldContents) or (".wa." not in emailFieldContents) or
+            ("greenwich" in emailFieldContents) or ("palmbeachschools" in emailFieldContents)):
+                print("Person Not From NY Found: {}".format(emailFieldContents))
+                notFromNYcount += 1
                 emailAddressResultForThisPerson = "None"
-            else:
 
-                if "@" in emailFieldContents: 
-                    count += 1
-                    pass
-                else:
-                    pass
-
-                    # attempting to handle unforseen error and update data structure on output file
-                    try:
-                        # perform google search
-                        resultingWebPages = search(searchStringText, num_results=7)
-
-                        # remove spam or other random crap.. avoiding viruses
-                        resultingWebPages = self.filterLinksForOrgOrEduOrUS(resultingWebPages) 
-
-                        # handle '-' character in last names
-                        if "-" in personLastName:
-                            personLastName = personLastName.split("-")[0]
-
-                        # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
-                        emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
-
-                        # print results to user
-                        print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
-
-                        # record resulting email address, continue processing
-                        self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson
-
-                        # slow down search too avoid 429 too many requests
-                        pauseTime = random.randint(1, 45)
-                        print("Sleeping for {} seconds".format(pauseTime))
-                        print("")
-                        time.sleep(pauseTime)
-
-                    except Exception as e:
-
-                        print("")
-                        print(e)
-                        print("Error has occured.. writing data structure to file")
-
-                        # write outputs to .xslx
-                        write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)
-
-        print("Total # of emails: {}".format(count))        
-                
+            # record resulting email address, continue processing
+            self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson        
+            
+            # write outputs to .xslx
+            # write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)        
+        print("not from NY Count = {}".format(notFromNYcount)) 
+        # print("total remaining non dups = {}".format(len(self.personsListDataFrame.iterrows()) - notFromNYcount))       
 
     # given web pages returned by search, iterate through them and search for email addresses
     def traverse_through_web_pages(self, resultingWebPages, personLastName):
