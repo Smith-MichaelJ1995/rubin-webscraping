@@ -1,5 +1,5 @@
 from googlesearch import search
-from helpers import fetch_email_addresses_by_webpage, fetch_input_file, write_output_file
+from helpers import fetch_email_addresses_by_webpage, fetch_input_file, write_output_file, filterLinksForSafeWebpages, filterLinksForSchoolEmailSuffix
 import time
 import random
 
@@ -14,69 +14,151 @@ class Search:
         self.run()
 
         # write outputs to .xslx
-        write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)
+        write_output_file('cte-educators-admins.xls', self.personsListDataFrame)
+
+    # find viable email suffixes for district/school
+    def fetch_email_suffix(self):
+
+        # build search string text for webpages: search "employer & email info"
+
+        # filter results to contain only .edu/.org/.us/https
+
+        # open each webpage
+            
+            # search for an "@", capture all email addresses
+
+            # filter those emails to only contain values .edu/.org/.us 
+
+            # if length of result > 0, then stop & return values list 
+
+        # inform runner that no valid prefixes found for this district/school, return None
+
+    # find email address given person's name
+    def find_email_address_for_person(self):   
+
+        # handle splitting person's last name
+
+        # build search string text for persons: search "person name, employer, email address"
+        # MAYBE TRY DIFFERENT SEARCH QUERY COMBOS? 
+
+        # filter resulting links to only contain .edu/.org/.us
+
+        # for each page/resulting links
+
+            # open page, fetch all possible email addresses
+
+            # for each email address found
+
+                # check if person's last name in email prefix section (before the "@")
+
+                    # check if first letter of person's first name exists in splitted array (split email prefix section based on person's last name)
+
+                # check if email suffix section within list of approved email suffixes for this record
+
+                
 
 
     # given the dataframe of admins - generated from .xls file attached, iterate through each person
     # then begin searching for emails
     def run(self):
 
-        notFromNYcount = 0
-
         # traverse through all search results one by one
         for index, row in self.personsListDataFrame.iterrows():
 
-            # create placeholder for resulting email address from search
-            emailAddressResultForThisPerson = ""
-
             # extract Institution Name & CSO test fields
-            institutionName = row['InstitutionName']
-            cso = row['CSO']
-            emailFieldContents = row['RelatedEmailAddresses']
-            personLastName = cso.split(" ")[-1]
+            name = row['FullName']
+            job = row['Job']
+            employer = row['Employer']
+            email = row['Email']
 
-            if ((".nj." in emailFieldContents) or (".ct." in emailFieldContents) or (".wa." not in emailFieldContents) or
-            ("greenwich" in emailFieldContents) or ("palmbeachschools" in emailFieldContents)):
-                print("Person Not From NY Found: {}".format(emailFieldContents))
-                notFromNYcount += 1
-                emailAddressResultForThisPerson = "None"
+            # create placeholder for searchStringText from search
+            personLastName = name.split(" ")[-1]
 
-            # record resulting email address, continue processing
-            self.personsListDataFrame.at[index, 'RelatedEmailAddresses'] = emailAddressResultForThisPerson        
+            # Combine School District Name, Faculty Name, Phone # into single searchable text that we'll query via google.
+            searchStringText = "{}, Email Information".format(employer)
+
+            # do we have an email address already?
+            if "@" in email:
+
+                # CALL FUNCTION: find email suffix based on employer
+                # state those within field in this dataframe.
+
+
+                # CALL FUNCTION: find possible email address matches based on person's last name, letters in first, valid email address suffixes 
+
+
+                # attempting to handle unforseen error and update data structure on output file
+                try:
+                    # perform google search
+                    resultingWebPages = search(searchStringText, num_results=7)
+
+                    # remove spam or other random crap.. avoiding viruses
+                    resultingWebPages = filterLinksForSafeWebpages(resultingWebPages) 
+
+                    # handle '-' character in last names
+                    if "-" in personLastName:
+                        personLastName = personLastName.split("-")[0]
+
+                    # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
+                    emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
+
+                    # print results to user
+                    print("Resulting Email Address For District: {} = {}".format(personLastName, emailAddressResultForThisPerson))
+                    exit()
+
+                    # record resulting email address, continue processing
+                    self.personsListDataFrame.at[index, 'Email'] = emailAddressResultForThisPerson
+
+                    # slow down search too avoid 429 too many requests
+                    pauseTime = random.randint(1, 45)
+                    print("Sleeping for {} seconds".format(pauseTime))
+                    print("")
+                    time.sleep(pauseTime)
+
+                except Exception as e:
+
+                    print("")
+                    print(e)
+                    print("Error has occured.. writing data structure to file")
+
+                    # write outputs to .xslx
+                    write_output_file('cte-educators-admins.xls', self.personsListDataFrame)
             
-            # write outputs to .xslx
-            # write_output_file('nys-public-school-admins-with-related-email-contacts.xls', self.personsListDataFrame)        
-        print("not from NY Count = {}".format(notFromNYcount)) 
-        # print("total remaining non dups = {}".format(len(self.personsListDataFrame.iterrows()) - notFromNYcount))       
+            else:
+
+                print("Person: {}, Email Already Found: {}".format(name, email))
 
     # given web pages returned by search, iterate through them and search for email addresses
     def traverse_through_web_pages(self, resultingWebPages, personLastName):
 
         # traverse through web pages
         for index, webpage in enumerate(resultingWebPages):
-
-            # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
-            # print("PROCESSING NEW WEBPAGE: INDEX = {}, URL = {}".format(index, webpage))
-            
+        
             # call separate selenium module to gather all email addresses located on this webpage
             emailAddressesForThisWebPage = fetch_email_addresses_by_webpage(webpage)
 
             # remove duplicates within email address list
             emailAddressesForThisWebPage = list(set(emailAddressesForThisWebPage))
 
+            # show all email addresses that appear in this search
+            #print(emailAddressesForThisWebPage)
+            if len(emailAddressesForThisWebPage) > 0:
+                return emailAddressesForThisWebPage
+            
+
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
             # print("TOTAL # OF EMAIL ADDRESSES RETURNED FOR THIS WEBPAGE: {}".format(len(emailAddressesForThisWebPage)))
 
             # search all email addresses, search till we find that of person we're targeting
-            personsEmailAddress, found = self.searchEmailsForTargetPerson(emailAddressesForThisWebPage, personLastName)
+            #personsEmailAddress, found = self.searchEmailsForTargetPerson(emailAddressesForThisWebPage, personLastName)
 
             # halt the traversal if we think we've found this person's email address
-            if found == True:
-                return personsEmailAddress
+            #if found == True:
+                #return personsEmailAddress
 
         
         # if we made it this far, we didn't find any results and are giving up for this person
-        return "None"
+        # return "None"
 
     # Given Returned Addresses On This Webpage, decipher of any of them match target person
     # This search isn't perfect: if it encounters another address of another person with the same last name, it will return the address. 
@@ -98,16 +180,4 @@ class Search:
         # no results found
         return "", False 
 
-    def filterLinksForOrgOrEduOrUS(self, links):
-        # acceptable webpages
-        validLinks = []
-
-        # iterate through all links
-        for link in links:
-
-            # I only want links with .org .edu .us in my links, I also must have https
-            if (".edu" in link or ".org" in link or ".us" in link) and "https" in link:
-                validLinks.append(link)
-
-        # provide valid links back to caller
-        return validLinks
+    
