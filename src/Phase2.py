@@ -12,17 +12,28 @@ class Phase1:
             "inn": []
         }
 
-        # convert phantom results to python array object containing dictionaries
+        # fetch people of interest
         vocational_poi = self.fetch_json_input_file(path)
 
-        # determine persons of interest
+        # determine persons of interest is missing the error key
         self.is_name_missing_from_poi(vocational_poi)
+
+        # traverse through all poi that have the error key
+        self.fetch_name_for_poi()
 
         # write persons_of_interest data structure to filesystem
         self.write_json_output_file("../current-data/vocational-poi.json", self.results["yes"])
         self.write_json_output_file("../current-data/vocational-non-poi.json", self.results["no"])
 
 
+    # determine names "people of interest" that don't have a name field
+    def fetch_name_for_poi():
+
+        # traverse through all poi that don't have names on file
+        for person_of_interest in self.results["oon"]:
+
+            
+    
     # filter people by out of network/in-network based on existance of 'error' key
     def is_name_missing_from_poi(vocational_poi): 
 
