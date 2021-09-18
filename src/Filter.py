@@ -11,10 +11,13 @@ def filter_relevant_persons(data, keywords):
             for keyword in keywords:
 
                 # determine if keyword exists in person['currentJob'] field
-                if keyword in field.lower():
+                if keyword not in field.lower():
 
                     # we've identified a person-of-interest by their job title
-                    return True
+                    return False
+
+            # if field is not empty & all keywords have been found in field, then we're interested in this person
+            return True
 
         # no data found indicating that we wan't to persue this person
         return False

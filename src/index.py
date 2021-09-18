@@ -20,8 +20,7 @@ phantom_search_results = fetch_input_file("../current-data/vocational-educators-
 # find for persons based on job title
 persons_of_interest = filter_relevant_persons(phantom_search_results, keywords=[
         "director", 
-        "vocational",
-        "technology"
+        "vocational"
     ]
 )
 
