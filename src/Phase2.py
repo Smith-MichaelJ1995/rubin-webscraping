@@ -36,10 +36,10 @@ class Phase2:
         # traverse through all poi's out-of-network
         for idx, person in enumerate(self.records["oon"]):
 
-            if idx == 50:
-                print("quitting.. writing to filesystem")
-                self.write_json_output_file("../current-data/vocational-poi-names-generated.json", self.records["oon"] + self.records["inn"])
-                exit()
+            # if idx == 50:
+            #     print("quitting.. writing to filesystem")
+            #     self.write_json_output_file("../current-data/vocational-poi-names-generated.json", self.records["oon"] + self.records["inn"])
+            #     exit()
 
             print("processing index: {}".format(idx))
 
