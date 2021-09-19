@@ -65,33 +65,3 @@ def fetch_email_addresses_by_webpage(url):
     exit()
     
     return filterLinksForOrgOrEduOrUS(emails)
-
-
-# Read in .XSLX file in here
-def fetch_input_file():
-
-    # specify path of provided NYS School Admins Directory
-    path = "cte-educators-admins.xls"
-
-    # process input file into dataframe
-    df = pd.read_excel(path)
-
-    #Full-Name	Job	Past-Job Location Email	Employer    Profile-URL																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								
-
-    # Must convert column for RelatedEmailAddresses from Float to String
-    df['Email'] = df['Email'].astype('string')
-
-    # return dataframe to caller
-    return df
-
-# Write DataFrame to xlsx
-def write_output_file(fileName, df):
-
-    # create excel writer object
-    writer = pd.ExcelWriter(fileName)
-
-    # write dataframe to excel
-    df.to_excel(writer)
-
-    # save the excel
-    writer.save()

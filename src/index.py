@@ -1,5 +1,6 @@
 from Phase1 import Phase1
 from Phase2 import Phase2
+from Phase3 import Phase3
 
 ##########
 ## PHASE 1: Filter For Relevant Persons
@@ -9,10 +10,9 @@ from Phase2 import Phase2
 ##########
 ## PHASE 2: Resolve Names For Relevant Persons Appearing Out-Of-Network
 ##########
-Phase2("../current-data/vocational-poi.json")
+#Phase2("../current-data/vocational-poi.json")
 
-
-# instantiate search object, 
-# load in administrators data file into DataFrame & perform all steps within constructor
-#search = Search() 
-
+##########
+## PHASE 3: Searching For Emails.. For Each POI having a name/profileLink defined.
+##########
+Phase3("../current-data/vocational-poi.json")
