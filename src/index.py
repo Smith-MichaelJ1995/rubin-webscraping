@@ -4,7 +4,7 @@ from Phase2 import Phase2
 ##########
 ## PHASE 1: Filter For Relevant Persons
 ##########
-Phase1("../current-data/vocational-educators-directory-admins.json", keywords=["director","vocational"])
+#Phase1("../current-data/vocational-educators-directory-admins.json", keywords=["director","vocational"])
 
 ##########
 ## PHASE 2: Resolve Names For Relevant Persons Appearing Out-Of-Network
