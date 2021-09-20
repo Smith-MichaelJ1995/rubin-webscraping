@@ -1,14 +1,16 @@
 from googlesearch import search
-from helpers import fetch_email_addresses_by_webpage, fetch_input_file, write_output_file, filterLinksForSafeWebpages, filterLinksForSchoolEmailSuffix
+from helpers import fetch_email_addresses_by_webpage, filterLinksForSafeWebpages, filterLinksForSchoolEmailSuffix
 import time
 import random
+import json
+import pandas as pd
 
 
-class Search:
-    def __init__(self):
+class Phase4:
+    def __init__(self, path):
 
         # Process File, read in all names, return list/dict with all client information
-        self.personsListDataFrame = fetch_input_file()
+        self.personsListDataFrame = self.fetch_input_file(path)
 
         # iterating through all admins, search for contacts and log them
         self.run()
@@ -16,8 +18,41 @@ class Search:
         # write outputs to .xslx
         write_output_file('cte-educators-admins.xls', self.personsListDataFrame)
 
+    # Read in vocational-poi.json from path
+    def fetch_input_file(self, path):
+
+        # fetch json from filesystem
+        with open(path, encoding="utf8") as f:
+            
+            # read JSON in from filesystem
+            data = json.load(f)
+            
+            # convert JSON to Pandas
+            pandas_dataframe = pd.json_normalize(data)
+
+            # remove data columns that we don't need
+            pandas_dataframe = pandas_dataframe.drop(['profileImageUrl','firstName', 'lastName', 'connectionDegree', 'name', 'sharedConnections', 'commonConnection1'], axis=1)
+            
+            # add column for 'email' address
+            pandas_dataframe.insert(loc=10, column="email", value="")
+            
+            # return dataframe to caller
+            return pandas_dataframe
+
+    # Write DataFrame to xlsx
+    def write_output_file(self, fileName, df):
+
+        # create excel writer object
+        writer = pd.ExcelWriter(fileName)
+
+        # write dataframe to excel
+        df.to_excel(writer)
+
+        # save the excel
+        writer.save()
+
     # find viable email suffixes for district/school
-    def fetch_email_suffix(self):
+    # def fetch_email_suffix(self):
 
         # build search string text for webpages: search "employer & email info"
 
@@ -34,7 +69,7 @@ class Search:
         # inform runner that no valid prefixes found for this district/school, return None
 
     # find email address given person's name
-    def find_email_address_for_person(self):   
+    # def find_email_address_for_person(self):   
 
         # handle splitting person's last name
 
@@ -63,19 +98,19 @@ class Search:
     def run(self):
 
         # traverse through all search results one by one
-        for index, row in self.personsListDataFrame.iterrows():
+        for index, row in self.personsListDataFrame.iterrows(): 
 
             # extract Institution Name & CSO test fields
-            name = row['FullName']
-            job = row['Job']
-            employer = row['Employer']
-            email = row['Email']
+            name = row['fullName']
+            job = row['currentJob'] if len(row['currentJob']) > 0 else row['job']
+            employer = row['employer']
+            email = row['email']
 
             # create placeholder for searchStringText from search
-            personLastName = name.split(" ")[-1]
+            personLastName = name.split(" ")[-1] 
 
             # Combine School District Name, Faculty Name, Phone # into single searchable text that we'll query via google.
-            searchStringText = "{}, Email Information".format(employer)
+            searchStringText = "{}, Email Information".format(name)
 
             # do we have an email address already?
             if "@" in email:
@@ -141,6 +176,7 @@ class Search:
             emailAddressesForThisWebPage = list(set(emailAddressesForThisWebPage))
 
             # show all email addresses that appear in this search
+            #print(emailAddressesForThisWebPage)
             if len(emailAddressesForThisWebPage) > 0:
                 return emailAddressesForThisWebPage
             
