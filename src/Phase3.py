@@ -19,7 +19,7 @@ class Phase3:
         self.run()
 
         # write outputs to .xslx
-        self.write_json_output_file("../current-data/vocational-poi-with-employers.json", self.records)
+        self.write_json_output_file(path, self.records)
 
     # Read in vocational-poi.json from path
     def fetch_json_input_file(self, path):
