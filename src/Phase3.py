@@ -1,5 +1,4 @@
 from googlesearch import search
-from helpers import fetch_email_addresses_by_webpage, filterLinksForSafeWebpages, filterLinksForSchoolEmailSuffix
 import time
 import random
 import json
