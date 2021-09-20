@@ -117,9 +117,9 @@ class Phase4:
             # create placeholder for searchStringText from search
             personLastName = name.split(" ")[-1]
 
-            if index == 50:
-                print("Stopping at 50 to validate results")
-                break
+            #if index == 200:
+            #    print("Stopping at 25 to validate results")
+            #    break
 
             # do we have an email address already?
             if "@" not in email: 
@@ -153,7 +153,8 @@ class Phase4:
                         personLastName = personLastName.split("-")[0]
 
                     # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
-                    emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName)
+                    # make sure that email address search will be all through lowercases
+                    emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName.lower())
 
                     # print results to user
                     print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
@@ -202,11 +203,12 @@ class Phase4:
                 # traverse through all email addresses for this web page
                 for emailAddress in emailAddressesForThisWebPage:
                     # check if lastname in email address
-                    if personLastName in emailAddress
-                        validEmailAddresses.append(personLastName)
+                    if personLastName in emailAddress.lower():
+                        validEmailAddresses.append(emailAddress.lower())
             
         # if we made it this far, we didn't find any results and are giving up for this person
-        return validEmailAddresses
+        # remove duplicates via list(set())
+        return list(set(validEmailAddresses))
 
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
             # print("TOTAL # OF EMAIL ADDRESSES RETURNED FOR THIS WEBPAGE: {}".format(len(emailAddressesForThisWebPage)))
