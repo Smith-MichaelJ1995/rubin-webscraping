@@ -23,8 +23,21 @@ class Phase3:
 
         # fetch json from filesystem
         with open(path, encoding="utf8") as f:
+            
+            # read JSON in from filesystem
             data = json.load(f)
-            return pd.json_normalize(data)
+            
+            # convert JSON to Pandas
+            pandas_dataframe = pd.json_normalize(data)
+
+            # remove data columns that we don't need
+            pandas_dataframe = pandas_dataframe.drop(['profileImageUrl','firstName', 'lastName', 'connectionDegree', 'name', 'sharedConnections', 'commonConnection1'], axis=1)
+            
+            # add column for 'email' address
+            pandas_dataframe.insert(loc=10, column="email", value="")
+            
+            # return dataframe to caller
+            return pandas_dataframe
 
     # Write DataFrame to xlsx
     def write_output_file(self, fileName, df):
@@ -85,8 +98,7 @@ class Phase3:
     def run(self):
 
         # traverse through all search results one by one
-        for index, row in self.personsListDataFrame.iterrows():
-
+        for index, row in self.personsListDataFrame.iterrows(): 
 
             # extract Institution Name & CSO test fields
             name = row['fullName']
@@ -95,7 +107,7 @@ class Phase3:
             email = row['email']
 
             # create placeholder for searchStringText from search
-            personLastName = name.split(" ")[-1]
+            personLastName = name.split(" ")[-1] 
 
             # Combine School District Name, Faculty Name, Phone # into single searchable text that we'll query via google.
             searchStringText = "{}, Email Information".format(employer)
