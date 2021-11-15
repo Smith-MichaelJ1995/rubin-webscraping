@@ -1,0 +1,9 @@
+1. Pick off "li_at" cookie variable on linkedin browner.
+2. Phanton
+	- Figure out how to use spreadsheet to get more people
+	- Run search, compute 1k records at a time, download JSON file.
+3. Pretty Format JSON file
+4. Compute Profile URLs for remaining folks with "profile out of network error"
+5. Determine (based on job title) if the person's profile is of value to us. Filter to include persons we find are of interest.
+6. Once all profile links are generated, use email contact generation script to identify corresponding email addresses for persons.
+7. Manually review all positive hits, determine which are true/false positives. Filter final .XSLX with records containing desired contacts.
