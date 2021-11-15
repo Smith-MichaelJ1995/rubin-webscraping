@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 
 import openpyxl
+import xlsxwriter
 from pathlib import Path
 
 
@@ -58,6 +59,9 @@ class Phase0:
             "CTE coordinator"
         ]   
 
+        # stage placeholder for location codes
+        codes = []
+
         # fetch location codes file from system, convert into iterable object
         xlsx_file = Path('location-codes-datatable.xlsx')
         wb_obj = openpyxl.load_workbook(xlsx_file)
@@ -76,34 +80,41 @@ class Phase0:
 
                 # determine if location code is a state
                 if cellLocation.value.count(",") == 1:
-                    
-                    
-                    print(cellLocation.value)
+                    codes.append(cellCode.value)
 
+    
 
-            #print("cellA: {}".format(cellA.value))
-            #print("cellLocation: {}".format(cellLocation.value))
-            #print("cellCountry: {}".format(cellCountry.value))
-            #print("cellCode: {}".format(cellCode.value))
+        # placeholder for all search links
+        links = []
 
+        # section for generating links, traverse through each term
+        for keyword in keywords:
+
+            # traverse through all terms
+            for code in codes:
+
+                # stage combination of keyword + link
+                links.append(
+                    "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22{}%22%5D&keywords={}&origin=FACETED_SEARCH".format(code, keyword)
+                )
+
+        # creation of worksheet
+        wb = xlsxwriter.Workbook("rubin-search-terms-results.xlsx")
+        ws = wb.add_worksheet()
+        row = 0
+
+        # iterate through all links
+        for link in links:
+            ws.write(row, 0, link)
+            row += 1
+
+        wb.close()
+            # print(link)
             #exit()
-            #for cell in row:
-                #print(cell.value)
-        
+            #textfile.write(element)
+        #textfile.close()
 
-        # signify different states in the US
-        # self.locations = [
-        #     {
-        #       "name": "Alabama, United States, US",
-        #       "code": "102240587"
-        #     },
-        #     {
-        #       "name": "Alabama, United States, US",
-        #       "code": "102240587"
-        #     }
-        # ]
 
-        # signify different keywords
-        # self.keywords = [
+                
 
-        # ]
+                # print()
