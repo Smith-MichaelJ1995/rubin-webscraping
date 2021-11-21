@@ -17,10 +17,11 @@ from Phase4 import Phase4
 # PASSED TERM: "business-professor" -- 0
 # PASSED TERM: "ctae-director" -- 0
 # PASSED TERM: "entreprenuership-teacher" -- 0
+# PASSED TERM: "marketing-professor" -- 0
 # TERM: "cte-coordinator" -- 12 
 # TERM: "business-teacher" -- 2
 # TERM: "cte-teacher" -- 12
-# TERM: "marketing-progessor" -- 0
+# TERM: "marketing-teacher" -- 1
 
 
 
