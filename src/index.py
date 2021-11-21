@@ -8,13 +8,27 @@ from Phase4 import Phase4
 ##########
 ## PHASE 0:
 ##########
-Phase0()
+#Phase0()
 
 
 ##########
 ## PHASE 1: Filter For Relevant Persons
 ##########
-#Phase1("../current-data/vocational-educators-directory-admins.json", keywords=["director","vocational"])
+# PASSED TERM: "business-professor" -- 0
+# PASSED TERM: "ctae-director" -- 0
+# PASSED TERM: "entreprenuership-teacher" -- 0
+# TERM: "cte-coordinator" -- 12 
+# TERM: "business-teacher" -- 2
+# TERM: "cte-teacher" -- 12
+# TERM: "marketing-progessor" -- 0
+
+
+
+Phase1(
+    "../data/json/new-york-state-cte-teacher.json",
+    "../data/json/results/cte-teacher.json",
+    keywords=["Career & Technical Education", "Career and Technical Education", "CTE", "Career & Technology Education", "Career and Technology Education", "Technology Education"]
+)
 
 ##########
 ## PHASE 2: Resolve Names For Relevant Persons Appearing Out-Of-Network
