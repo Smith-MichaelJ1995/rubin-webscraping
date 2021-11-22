@@ -12,16 +12,16 @@ import json
 
 
 class Phase4:
-    def __init__(self, path):
+    def __init__(self, inputPath, outputPath):
 
         # Process File, read in all names, return list/dict with all client information
-        self.personsListDataFrame = self.fetch_input_file(path)
+        self.personsListDataFrame = self.fetch_input_file(inputPath)
 
         # iterating through all admins, search for contacts and log them
         self.run()
 
         # write outputs to .xslx
-        self.write_output_file('../current-data/cte-educators-admins.xls', self.personsListDataFrame)
+        self.write_output_file(outputPath, self.personsListDataFrame)
 
     # Read in vocational-poi.json from path
     def fetch_input_file(self, path):
@@ -35,8 +35,14 @@ class Phase4:
             # convert JSON to Pandas
             pandas_dataframe = pd.json_normalize(data)
 
+            #print(pandas_dataframe.columns)
+            #exit()
+
             # remove data columns that we don't need
-            pandas_dataframe = pandas_dataframe.drop(['profileImageUrl','firstName', 'lastName', 'connectionDegree', 'name', 'sharedConnections', 'commonConnection1'], axis=1)
+            #pandas_dataframe = pandas_dataframe.drop(['profileUrl', 'fullName', 'firstName', 'lastName', 'profileImageUrl', 
+            #    'currentJob', 'pastJob', 'connectionDegree', 'job', 'location', 'url',
+            #    'name', 'query', 'category', 'timestamp', 'employer',
+            #    'sharedConnections'], axis=1)
             
             # add column for 'email' address
             pandas_dataframe.insert(loc=10, column="email", value="")

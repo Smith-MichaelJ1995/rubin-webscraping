@@ -17,7 +17,7 @@ class Phase3:
         # iterating through all admins, search for contacts and log them
         self.run()
 
-        # write outputs to .xslx
+        # write outputs to json
         self.write_json_output_file(path, self.records)
 
     # Read in vocational-poi.json from path

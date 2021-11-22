@@ -23,25 +23,26 @@ from Phase4 import Phase4
 # TERM: "cte-teacher" -- 12
 # TERM: "marketing-teacher" -- 1
 
-
-
-Phase1(
-    "../data/json/new-york-state-cte-teacher.json",
-    "../data/json/results/cte-teacher.json",
-    keywords=["Career & Technical Education", "Career and Technical Education", "CTE", "Career & Technology Education", "Career and Technology Education", "Technology Education"]
-)
+# Phase1(
+#     "../data/json/new-york-state-cte-teacher.json",
+#     "../data/json/results/cte-teacher.json",
+#     keywords=["Career & Technical Education", "Career and Technical Education", "CTE", "Career & Technology Education", "Career and Technology Education", "Technology Education"]
+# )
 
 ##########
 ## PHASE 2: Resolve Names For Relevant Persons Appearing Out-Of-Network
 ##########
-#Phase2("../current-data/vocational-poi.json")
+# Phase2("../current-data/vocational-poi.json")
 
 ##########
 ## PHASE 3: Compute Employers For People Of Interest
 ##########
-#Phase3("../current-data/vocational-poi.json")
+# Phase3("../data/json/results/new-york-state-cte-results-11-21-2021.json")
 
 ##########
 ## PHASE 4: Searching For Emails.. For Each POI having a name/profileLink defined.
 ##########
-#Phase4("../current-data/vocational-poi.json")
+Phase4(
+    inputPath="../data/json/results/new-york-state-cte-results-11-21-2021.json",
+    outputPath="../data/xls/new-york-state-cte-results-11-21-2021.xls"
+)

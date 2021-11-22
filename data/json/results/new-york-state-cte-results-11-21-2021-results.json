@@ -1,53 +1,21 @@
 [
     {
-        "profileUrl":"https://www.linkedin.com/in/valerie-gulston-2673a81a",
-        "fullName":"Valerie Gulston",
-        "firstName":"Valerie",
-        "lastName":"Gulston",
-        "profileImageUrl":"https://media-exp1.licdn.com/dms/image/D4D35AQENu9JWgt1oHg/profile-framedphoto-shrink_100_100/0/1627572816641?e=1637118000&v=beta&t=j2-iJOZYn4dC9TUVvUGKMdUpKN02YVetcNOz6aRArkA",
-        "currentJob":"",
-        "pastJob":"Business Education Teacher, Internship Coordinator at New York City Department of  Education",
-        "connectionDegree":"3rd+",
-        "job":"Retired CTE Educator/ Mentor/Public Speaker",
-        "location":"New York, NY",
-        "url":"https://www.linkedin.com/in/valerie-gulston-2673a81a",
-        "name":"Valerie Gulston",
-        "query":"https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=business teacher&origin=FACETED_SEARCH",
-        "category":"People",
-        "timestamp":"2021-11-16T02:01:02.061Z"
-    },
-    {
-        "profileUrl":"https://www.linkedin.com/in/nabil-zahmoul-46886912",
-        "fullName":"Nabil Zahmoul",
-        "firstName":"Nabil",
-        "lastName":"Zahmoul",
-        "profileImageUrl":"https://media-exp1.licdn.com/dms/image/C4E03AQE7PBz8aliPHQ/profile-displayphoto-shrink_100_100/0/1624205352322?e=1642636800&v=beta&t=1O7jvwGly4nO7AH2a4P1ZoBjcmzI3SjXLqjrflFULlQ",
-        "currentJob":"",
-        "pastJob":"Computer Science Teacher at Imagine Schools - ...teacher who helped students qualify for the CTE examination and earn the “Internet Business Associate...",
-        "connectionDegree":"3rd+",
-        "job":"Computer Science Teacher at Charter School Associates",
-        "location":"New York, NY",
-        "url":"https://www.linkedin.com/in/nabil-zahmoul-46886912",
-        "name":"Nabil Zahmoul",
-        "query":"https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=business teacher&origin=FACETED_SEARCH",
-        "category":"People",
-        "timestamp":"2021-11-16T01:59:02.721Z"
-    },
-    {
-        "profileUrl": "https://www.linkedin.com/in/nicole-zagada-9870b1a7",
-        "fullName": "Nicole Zagada",
-        "firstName": "Nicole",
-        "lastName": "Zagada",
-        "currentJob": "Summary: ...Coordinator for the Barbering, Computer Repair...",
-        "pastJob": "",
+        "profileUrl": "https://www.linkedin.com/in/nabil-zahmoul-46886912",
+        "fullName": "Nabil Zahmoul",
+        "firstName": "Nabil",
+        "lastName": "Zahmoul",
+        "profileImageUrl": "https://media-exp1.licdn.com/dms/image/C4E03AQE7PBz8aliPHQ/profile-displayphoto-shrink_100_100/0/1624205352322?e=1642636800&v=beta&t=1O7jvwGly4nO7AH2a4P1ZoBjcmzI3SjXLqjrflFULlQ",
+        "currentJob": "",
+        "pastJob": "Computer Science Teacher at Imagine Schools - ...teacher who helped students qualify for the CTE examination and earn the \u201cInternet Business Associate...",
         "connectionDegree": "3rd+",
-        "job": "Career & Technical Education (CTE) Teacher//WBL Coordinator at NYC Department of Education",
+        "job": "Computer Science Teacher at Charter School Associates",
         "location": "New York, NY",
-        "url": "https://www.linkedin.com/in/nicole-zagada-9870b1a7",
-        "name": "Nicole Zagada",
-        "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
+        "url": "https://www.linkedin.com/in/nabil-zahmoul-46886912",
+        "name": "Nabil Zahmoul",
+        "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=business teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-17T00:41:47.746Z"
+        "timestamp": "2021-11-16T01:59:02.721Z",
+        "employer": "Charter School Associates"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/andrew-o-grady-20876511",
@@ -57,6 +25,7 @@
         "profileImageUrl": "https://media-exp1.licdn.com/dms/image/C4E03AQECoVfHYF_qdA/profile-displayphoto-shrink_100_100/0/1519056381111?e=1642636800&v=beta&t=1lOf697emLP6KKzbIj3P7o7pd9OdS7KXS3UwsG2bBgs",
         "currentJob": "CTE Teacher / Work-Based Learning Coordinator at Bronx Early College Academy for Teaching...",
         "pastJob": "",
+        "email": "aogrady@beca324.org",
         "connectionDegree": "3rd+",
         "job": "High School Teacher",
         "location": "New York, NY",
@@ -64,7 +33,8 @@
         "name": "Andrew O'Grady",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-17T00:42:01.641Z"
+        "timestamp": "2021-11-17T00:42:01.641Z",
+        "employer": "Bronx Early College Academy for Teaching"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/velezteach",
@@ -81,7 +51,8 @@
         "name": "Steven Velez",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-17T00:42:01.641Z"
+        "timestamp": "2021-11-17T00:42:01.641Z",
+        "employer": "NYC Department of Education"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/chavez",
@@ -93,29 +64,14 @@
         "pastJob": "",
         "connectionDegree": "3rd+",
         "job": "CTE Instructor & Study Abroad Coordinator at High School of Fashion Industries",
+        "email": "rchavez5@schools.nyc.gov",
         "location": "New York, NY",
         "url": "https://www.linkedin.com/in/chavez",
         "name": "Rosa Isabel Chavez",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-17T00:42:06.180Z"
-    },
-    {
-        "profileUrl": "https://www.linkedin.com/in/robert-poinsette-17885523",
-        "fullName": "Robert Poinsette",
-        "firstName": "Robert",
-        "lastName": "Poinsette",
-        "profileImageUrl": "https://media-exp1.licdn.com/dms/image/C4D03AQGmMuvJ0uchIA/profile-displayphoto-shrink_100_100/0/1517043853674?e=1642636800&v=beta&t=pmVD89k5SWkmuxdpSZtgPVugW3_dVp0bLz9ha6nRURA",
-        "currentJob": "",
-        "pastJob": "Clinical Operations Coordinator at The Mount Sinai Hospital",
-        "connectionDegree": "3rd+",
-        "job": "Exploratory CTE Teacher",
-        "location": "New York City Metropolitan Area",
-        "url": "https://www.linkedin.com/in/robert-poinsette-17885523",
-        "name": "Robert Poinsette",
-        "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
-        "category": "People",
-        "timestamp": "2021-11-17T00:42:14.952Z"
+        "timestamp": "2021-11-17T00:42:06.180Z",
+        "employer": "High School of Fashion Indusries"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/deborah-krieger-a4968138",
@@ -132,7 +88,8 @@
         "name": "Deborah Krieger",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-17T00:42:32.806Z"
+        "timestamp": "2021-11-17T00:42:32.806Z",
+        "employer": "None"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/isaiserrano",
@@ -147,44 +104,11 @@
         "location": "New York, NY",
         "url": "https://www.linkedin.com/in/isaiserrano",
         "name": "Isai Serrano",
+        "email": "iserrano5@schools.nyc.gov",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-17T00:42:46.883Z"
-    },
-    {
-        "profileUrl": "https://www.linkedin.com/in/valerie-gulston-2673a81a",
-        "fullName": "Valerie Gulston",
-        "firstName": "Valerie",
-        "lastName": "Gulston",
-        "profileImageUrl": "https://media-exp1.licdn.com/dms/image/D4D35AQENu9JWgt1oHg/profile-framedphoto-shrink_100_100/0/1627572816641?e=1637197200&v=beta&t=hjFl_0rU-5FF4XsgfmAac6JdAeSuU0KiKo_XRZflAF8",
-        "currentJob": "",
-        "pastJob": "Teacher and Internship Coordinator at Astor  Collegiate  Academy",
-        "connectionDegree": "3rd+",
-        "job": "Retired CTE Educator/ Mentor/Public Speaker",
-        "location": "New York, NY",
-        "url": "https://www.linkedin.com/in/valerie-gulston-2673a81a",
-        "name": "Valerie Gulston",
-        "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
-        "category": "People",
-        "timestamp": "2021-11-17T00:42:55.023Z"
-    },
-    {
-        "profileUrl": "https://www.linkedin.com/in/lawrencerossianno",
-        "fullName": "Lawrence Rossianno",
-        "firstName": "Lawrence",
-        "lastName": "Rossianno",
-        "profileImageUrl": "https://media-exp1.licdn.com/dms/image/C4D03AQEcw13jmoMZ5Q/profile-displayphoto-shrink_100_100/0/1628175075557?e=1642636800&v=beta&t=Ly-5SZWxmRr_x0mnpcmeQx2vnTZjCajbPls5mkLbT9o",
-        "currentJob": "Past: Business Development Coordinator: CTE Industry Scholars Program at Grant Associates Inc",
-        "pastJob": "",
-        "connectionDegree": "3rd+",
-        "job": "Cybersecurity Client Engagement Manager at Hays, Experts in Tech & Talent",
-        "location": "New York, NY",
-        "sharedConnections": "Provides services - Cybersecurity, Data Recovery, IT Consulting, Network Support, Backup & Recovery Systems, Computer Networking, Computer Repair, Home Networking",
-        "url": "https://www.linkedin.com/in/lawrencerossianno",
-        "name": "Lawrence Rossianno",
-        "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
-        "category": "People",
-        "timestamp": "2021-11-17T00:42:59.390Z"
+        "timestamp": "2021-11-17T00:42:46.883Z",
+        "employer": "Ralph R Mckee Career And Technical Education High..."
     },
     {
         "profileUrl": "https://www.linkedin.com/in/aaron-singh-25a794a",
@@ -196,11 +120,13 @@
         "connectionDegree": "3rd+",
         "job": "New York Harbor School Waterfront Director",
         "location": "New York, NY",
+        "email": "asingh@newyorkharborschool.org",
         "url": "https://www.linkedin.com/in/aaron-singh-25a794a",
         "name": "Aaron Singh",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-17T00:44:14.081Z"
+        "timestamp": "2021-11-17T00:44:14.081Z",
+        "employer": "NYC Department of Education"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/corrinedoron",
@@ -213,11 +139,13 @@
         "connectionDegree": "3rd+",
         "job": "Industry Engagement Manager, Career and Technical Education, NYC DOE",
         "location": "New York City Metropolitan Area",
+        "email": "cdoron@schools.nyc.gov",
         "url": "https://www.linkedin.com/in/corrinedoron",
         "name": "Corrine Doron",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-17T00:45:27.614Z"
+        "timestamp": "2021-11-17T00:45:27.614Z",
+        "employer": "NYC Department of Education"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/peter-nieznalski-16565934",
@@ -230,24 +158,13 @@
         "connectionDegree": "3rd+",
         "job": "Career & Technical Educator Print, Technology & WBL Coordinator",
         "location": "New York, NY",
+        "email": "PNieznalski@schools.nyc.gov",
         "url": "https://www.linkedin.com/in/peter-nieznalski-16565934",
         "name": "Peter Nieznalski",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-17T00:46:52.147Z"
-    },
-    {
-        "profileUrl": "",
-        "error": "Profile out of your network.",
-        "profileImageUrl": "https://media-exp1.licdn.com/dms/image/C5603AQEN_QiN1bMByQ/profile-displayphoto-shrink_100_100/0/1518996060852?e=1642636800&v=beta&t=-WX-JifNt2Yw2aOf63qdfGwOxlDA6MBir4F3cCNMWC4",
-        "currentJob": "CTE Teacher at NYC Department of Education",
-        "pastJob": "",
-        "job": "Entrepreneur / Events coordinator/ Art projects/ Special Ed Teacher",
-        "location": "United States",
-        "url": "",
-        "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE coordinator&origin=FACETED_SEARCH",
-        "category": "People",
-        "timestamp": "2021-11-17T00:47:01.017Z"
+        "timestamp": "2021-11-17T00:46:52.147Z",
+        "employer": "School for Cooperative Education"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/nicole-zagada-9870b1a7",
@@ -257,13 +174,15 @@
         "currentJob": "Summary: ...CTE majors.   Actively looking for potential...",
         "pastJob": "",
         "connectionDegree": "3rd+",
+        "email":"nzagada@schools.nyc.gov",
         "job": "Career & Technical Education (CTE) Teacher//WBL Coordinator at NYC Department of Education",
         "location": "New York, NY",
         "url": "https://www.linkedin.com/in/nicole-zagada-9870b1a7",
         "name": "Nicole Zagada",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:00:25.073Z"
+        "timestamp": "2021-11-16T03:00:25.073Z",
+        "employer": "NYC Department of Education"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/izabela-nieznalski-a0622372",
@@ -280,7 +199,9 @@
         "name": "Izabela Nieznalski",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:00:25.074Z"
+        "timestamp": "2021-11-16T03:00:25.074Z",
+        "employer": "NYC Department of Education",
+        "email": "INieznalski@schools.nyc.gov"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/sarahgeist",
@@ -297,7 +218,8 @@
         "name": "Sarah Geist",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:00:36.418Z"
+        "timestamp": "2021-11-16T03:00:36.418Z",
+        "employer": "NYC Department of Education"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/megan-letavish-13728865",
@@ -314,7 +236,8 @@
         "name": "Megan Letavish",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:00:36.418Z"
+        "timestamp": "2021-11-16T03:00:36.418Z",
+        "employer": "NYC Department of Education"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/robert-poinsette-17885523",
@@ -326,12 +249,14 @@
         "pastJob": "",
         "connectionDegree": "3rd+",
         "job": "Exploratory CTE Teacher",
+        "email": "rpoinsette@necsd.net",
         "location": "New York City Metropolitan Area",
         "url": "https://www.linkedin.com/in/robert-poinsette-17885523",
         "name": "Robert Poinsette",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:00:45.289Z"
+        "timestamp": "2021-11-16T03:00:45.289Z",
+        "employer": "Newburgh Enlarged City School District"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/trisha-r-0b668a110",
@@ -343,11 +268,13 @@
         "connectionDegree": "3rd+",
         "job": "Assistant Principal of CTE",
         "location": "New York, NY",
+        "email": "tramdeo@schools.nyc.gov",
         "url": "https://www.linkedin.com/in/trisha-r-0b668a110",
         "name": "Trisha R.",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:00:48.665Z"
+        "timestamp": "2021-11-16T03:00:48.665Z",
+        "employer": "NYC Department of Education"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/emilymaretsky",
@@ -358,30 +285,15 @@
         "currentJob": "Engineering Teacher & CTE Department Chair at Energy Tech High School",
         "pastJob": "",
         "connectionDegree": "3rd+",
+        "email": "emily.maretsky@gmail.com",
         "job": "Teacher Financial Coach + CTE Engineering Teacher",
         "location": "New York, NY",
         "url": "https://www.linkedin.com/in/emilymaretsky",
         "name": "Emily Maretsky",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:00:53.420Z"
-    },
-    {
-        "profileUrl": "https://www.linkedin.com/in/chavez",
-        "fullName": "Rosa Isabel Chavez",
-        "firstName": "Rosa",
-        "lastName": "Isabel Chavez",
-        "profileImageUrl": "https://media-exp1.licdn.com/dms/image/C4E03AQGC8sSkH272dw/profile-displayphoto-shrink_100_100/0/1517748627215?e=1642636800&v=beta&t=TAY0cUrbPqhxXrwW5ARpAD_Qt5kjGuu4-z2o3AdwFfQ",
-        "currentJob": "",
-        "pastJob": "Costume Design Teacher at Bronx Theatre High School",
-        "connectionDegree": "3rd+",
-        "job": "CTE Instructor & Study Abroad Coordinator at High School of Fashion Industries",
-        "location": "New York, NY",
-        "url": "https://www.linkedin.com/in/chavez",
-        "name": "Rosa Isabel Chavez",
-        "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
-        "category": "People",
-        "timestamp": "2021-11-16T03:00:57.872Z"
+        "timestamp": "2021-11-16T03:00:53.420Z",
+        "employer": "Energy Tech High School"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/cindy-sukhoo-36b659178",
@@ -398,23 +310,8 @@
         "name": "Cindy Sukhoo",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:01:01.270Z"
-    },
-    {
-        "profileUrl": "https://www.linkedin.com/in/aaron-singh-25a794a",
-        "fullName": "Aaron Singh",
-        "firstName": "Aaron",
-        "lastName": "Singh",
-        "currentJob": "Waterfront Director/ CTE Teacher at NYC Department of Education",
-        "pastJob": "",
-        "connectionDegree": "3rd+",
-        "job": "New York Harbor School Waterfront Director",
-        "location": "New York, NY",
-        "url": "https://www.linkedin.com/in/aaron-singh-25a794a",
-        "name": "Aaron Singh",
-        "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
-        "category": "People",
-        "timestamp": "2021-11-16T03:01:05.636Z"
+        "timestamp": "2021-11-16T03:01:01.270Z",
+        "employer": "NYC Department of Education"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/alisa-sukhotskaya-1764892b",
@@ -431,7 +328,8 @@
         "name": "Alisa Sukhotskaya",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:01:17.268Z"
+        "timestamp": "2021-11-16T03:01:17.268Z",
+        "employer": "The Manhattan Early College School"
     },
     {
         "profileUrl": "https://www.linkedin.com/in/thomas-anthony-z-b372146",
@@ -448,40 +346,7 @@
         "name": "Thomas Anthony Z.",
         "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
         "category": "People",
-        "timestamp": "2021-11-16T03:01:21.784Z"
-    },
-    {
-        "profileUrl": "https://www.linkedin.com/in/valerie-gulston-2673a81a",
-        "fullName": "Valerie Gulston",
-        "firstName": "Valerie",
-        "lastName": "Gulston",
-        "profileImageUrl": "https://media-exp1.licdn.com/dms/image/D4D35AQENu9JWgt1oHg/profile-framedphoto-shrink_100_100/0/1627572816641?e=1637121600&v=beta&t=tjo1lbwqUfKGLpixa7HVpRG4Zs-qRCQwFzPIio38crY",
-        "currentJob": "",
-        "pastJob": "Teacher and Internship  Coordinator at Astor  Collegiate  Academy",
-        "connectionDegree": "3rd+",
-        "job": "Retired CTE Educator/ Mentor/Public Speaker",
-        "location": "New York, NY",
-        "url": "https://www.linkedin.com/in/valerie-gulston-2673a81a",
-        "name": "Valerie Gulston",
-        "query": "https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=CTE teacher&origin=FACETED_SEARCH",
-        "category": "People",
-        "timestamp": "2021-11-16T03:01:21.784Z"
-    },
-    {
-        "profileUrl":"https://www.linkedin.com/in/alisa-sukhotskaya-1764892b",
-        "fullName":"Alisa Sukhotskaya",
-        "firstName":"Alisa",
-        "lastName":"Sukhotskaya",
-        "profileImageUrl":"https://media-exp1.licdn.com/dms/image/C4D03AQGw2w4PT8t8Pw/profile-displayphoto-shrink_100_100/0/1536200827722?e=1642636800&v=beta&t=KjLVMrqp3CkCcugEd9mHfbudfKMlIHASLqFET7WtMBE",
-        "currentJob":"CTE Teacher- Branding & Marketing, Art & Advertising at The Manhattan Early College School...",
-        "pastJob":"",
-        "connectionDegree":"3rd+",
-        "job":"Branding & Marketing CTE/ Early College Instructor",
-        "location":"New York, NY",
-        "url":"https://www.linkedin.com/in/alisa-sukhotskaya-1764892b",
-        "name":"Alisa Sukhotskaya",
-        "query":"https://www.linkedin.com/search/results/people/?geoUrn=%5B%22102571732%22%5D&keywords=marketing teacher&origin=FACETED_SEARCH",
-        "category":"People",
-        "timestamp":"2021-11-16T02:23:16.062Z"
+        "timestamp": "2021-11-16T03:01:21.784Z",
+        "employer": "NYC Board of Education"
     }
 ]
