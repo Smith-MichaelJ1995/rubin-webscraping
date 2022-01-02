@@ -12,16 +12,16 @@ import json
 
 
 class Phase4:
-    def __init__(self, path):
+    def __init__(self, srcJsonPath, destXlsxPath):
 
         # Process File, read in all names, return list/dict with all client information
-        self.personsListDataFrame = self.fetch_input_file(path)
+        self.personsListDataFrame = self.fetch_input_file(srcJsonPath)
 
         # iterating through all admins, search for contacts and log them
-        self.run()
+        # self.run()
 
         # write outputs to .xslx
-        self.write_output_file('../current-data/cte-educators-admins.xls', self.personsListDataFrame)
+        self.write_output_file(destXlsxPath, self.personsListDataFrame)
 
     # Read in vocational-poi.json from path
     def fetch_input_file(self, path):

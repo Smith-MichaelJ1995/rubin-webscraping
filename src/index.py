@@ -7,12 +7,12 @@ from Phase4 import Phase4
 ##########
 ## PHASE 1: Filter For Relevant Persons
 ##########
-#Phase1("../current-data/vocational-educators-directory-admins.json", keywords=["director","vocational"])
+#Phase1("../script-input/new-york-state-cte-12-30-2021.json", keywords=["CTE","director","coordinator"])
 
 ##########
 ## PHASE 2: Resolve Names For Relevant Persons Appearing Out-Of-Network
 ##########
-#Phase2("../current-data/vocational-poi.json")
+#Phase2("../script-output/cte-poi.json")
 
 ##########
 ## PHASE 3: Compute Employers For People Of Interest
@@ -22,4 +22,4 @@ from Phase4 import Phase4
 ##########
 ## PHASE 4: Searching For Emails.. For Each POI having a name/profileLink defined.
 ##########
-Phase4("../current-data/vocational-poi.json")
+Phase4(srcJsonPath = "../script-output/cte-poi-names-generated.json", destXlsxPath = "../script-output/cte-poi-names-generated.xls")

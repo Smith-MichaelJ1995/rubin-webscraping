@@ -28,7 +28,7 @@ class Phase2:
         self.resolve_profilelink_for_unresolved_poi()
 
         # write persons_of_interest data structure to filesystem
-        self.write_json_output_file("../current-data/vocational-poi-names-generated.json", self.records["oon"] + self.records["inn"])
+        self.write_json_output_file("../script-output/cte-poi-names-generated.json", self.records["oon"] + self.records["inn"])
 
     # given unresolvable names from list, resort to setting these fields for each person manually
     def resolve_profilelink_for_unresolved_poi(self):
@@ -42,8 +42,14 @@ class Phase2:
             # notify user which person we're tracking
             print("processing index: {}".format(idx))
 
+            # create placeholder for position field
+            position = ""
+
             # set position=currentJob by default, if this key is empty, then use job
-            position = person['currentJob'] if len(person['currentJob']) > 0 else person['job']
+            if 'currentJob' in person and len(person['currentJob']) > 0:
+                position = person['currentJob']
+            else:
+                position = person['job']
 
             # create placeholder for search string text
             searchStringText = "{}, Linkedin Profile, {}".format(position, person['location'])
