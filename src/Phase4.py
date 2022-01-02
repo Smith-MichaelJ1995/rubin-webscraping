@@ -12,16 +12,16 @@ import json
 
 
 class Phase4:
-    def __init__(self, inputPath, outputPath):
+    def __init__(self, srcJsonPath, destXlsxPath):
 
         # Process File, read in all names, return list/dict with all client information
-        self.personsListDataFrame = self.fetch_input_file(inputPath)
+        self.personsListDataFrame = self.fetch_input_file(srcJsonPath)
 
         # iterating through all admins, search for contacts and log them
-        self.run()
+        # self.run()
 
         # write outputs to .xslx
-        self.write_output_file(outputPath, self.personsListDataFrame)
+        self.write_output_file(destXlsxPath, self.personsListDataFrame)
 
     # Read in vocational-poi.json from path
     def fetch_input_file(self, path):
@@ -303,5 +303,3 @@ class Phase4:
         emails = re.findall("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)", get_source)
         
         return self.filterLinksForSchoolEmailSuffix(emails)
-
-    
