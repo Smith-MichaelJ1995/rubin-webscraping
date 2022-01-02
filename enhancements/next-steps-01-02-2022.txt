@@ -1,6 +1,6 @@
 Action Items:
 1) Parameterize code to handle generic input variables == DONE
-2) Document current usage/functionality of the script == HOLD
+2) Document current usage/functionality of the script == HOLD (Wait till generating vocational education records for NY State)
 3) Create folder/directory for database/xslx management script.
 4) Build both files. 
 5) Create documentation around usage of database/xslx management script.

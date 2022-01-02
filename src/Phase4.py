@@ -16,7 +16,8 @@ class Phase4:
     def __init__(self, srcJsonPath, destXlsxPath):
 
         # Process File, read in all names, return list/dict with all client information
-        self.personsListDataFrame = self.fetch_json_input_file("../output/{}".format(srcJsonPath))
+        inputJson = fetch_json_input_file("../output/{}".format(srcJsonPath))
+        self.personsListDataFrame = self.build_data_frame(inputJson)
 
         # iterating through all admins, search for contacts and log them
         # self.run()
@@ -25,31 +26,22 @@ class Phase4:
         self.write_output_file_to_xls("../output/{}".format(destXlsxPath), self.personsListDataFrame)
 
     # Read in vocational-poi.json from path
-    def fetch_input_file(self, path):
+    def build_data_frame(self, data):
 
-        # fetch json from filesystem
-        with open(path, encoding="utf8") as f:
-            
-            # read JSON in from filesystem
-            data = json.load(f)
-            
-            # convert JSON to Pandas
-            pandas_dataframe = pd.json_normalize(data)
+        # convert JSON to Pandas
+        pandas_dataframe = pd.json_normalize(data)
 
-            #print(pandas_dataframe.columns)
-            #exit()
-
-            # remove data columns that we don't need
-            #pandas_dataframe = pandas_dataframe.drop(['profileUrl', 'fullName', 'firstName', 'lastName', 'profileImageUrl', 
-            #    'currentJob', 'pastJob', 'connectionDegree', 'job', 'location', 'url',
-            #    'name', 'query', 'category', 'timestamp', 'employer',
-            #    'sharedConnections'], axis=1)
+        # remove data columns that we don't need
+        #pandas_dataframe = pandas_dataframe.drop(['profileUrl', 'fullName', 'firstName', 'lastName', 'profileImageUrl', 
+        #    'currentJob', 'pastJob', 'connectionDegree', 'job', 'location', 'url',
+        #    'name', 'query', 'category', 'timestamp', 'employer',
+        #    'sharedConnections'], axis=1)
             
-            # add column for 'email' address
-            pandas_dataframe.insert(loc=10, column="email", value="")
+        # add column for 'email' address
+        pandas_dataframe.insert(loc=10, column="email", value="")
             
-            # return dataframe to caller
-            return pandas_dataframe
+        # return dataframe to caller
+        return pandas_dataframe
 
     # Write DataFrame to xlsx
     def write_output_file_to_xls(self, fileName, df):
