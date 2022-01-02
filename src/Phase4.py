@@ -1,27 +1,28 @@
+import pandas as pd
+import re
+import time
+import random
+import json
 from googlesearch import search
 from selenium import webdriver 
 from selenium.webdriver.common.keys import Keys 
 from selenium.webdriver.common.by import By 
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as EC 
-import pandas as pd
-import re
-import time
-import random
-import json
+from helpers import fetch_json_input_file, write_json_output_file
 
 
 class Phase4:
     def __init__(self, srcJsonPath, destXlsxPath):
 
         # Process File, read in all names, return list/dict with all client information
-        self.personsListDataFrame = self.fetch_input_file(srcJsonPath)
+        self.personsListDataFrame = self.fetch_json_input_file("../output/{}".format(srcJsonPath))
 
         # iterating through all admins, search for contacts and log them
         # self.run()
 
         # write outputs to .xslx
-        self.write_output_file(destXlsxPath, self.personsListDataFrame)
+        self.write_output_file_to_xls("../output/{}".format(destXlsxPath), self.personsListDataFrame)
 
     # Read in vocational-poi.json from path
     def fetch_input_file(self, path):
@@ -51,7 +52,7 @@ class Phase4:
             return pandas_dataframe
 
     # Write DataFrame to xlsx
-    def write_output_file(self, fileName, df):
+    def write_output_file_to_xls(self, fileName, df):
 
         # create excel writer object
         writer = pd.ExcelWriter(fileName)

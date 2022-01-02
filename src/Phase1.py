@@ -1,7 +1,8 @@
 import json
+from helpers import fetch_json_input_file, write_json_output_file
 
 class Phase1:
-    def __init__(self, path, outFile, keywords):
+    def __init__(self, phantomInputJson, outFile, keywords):
 
         # inform user that we're starting pipeline..
         print("STARTING PHASE 1... Filter Phantom Results For Persons Of Interest")
@@ -16,27 +17,14 @@ class Phase1:
         self.keywords = keywords
 
         # convert phantom results to python array object containing dictionaries
-        phantom_search_results = self.fetch_json_input_file(path)
+        phantom_search_results = fetch_json_input_file("../input/{}".format(phantomInputJson))
 
         # determine persons of interest
         self.filter_relevant_persons(phantom_search_results)
 
         # write persons_of_interest data structure to filesystem
-        self.write_json_output_file("../script-output/poi.json", self.results["yes"])
-        self.write_json_output_file("../script-output/non-poi.json", self.results["no"])
-
-
-    # fetch phantom results file from system
-    def fetch_json_input_file(self, path):
-        # fetch file from system
-        with open(path, encoding="utf8") as f:
-            return json.load(f)
-
-    # write json results to filesystem
-    def write_json_output_file(self, path, payload):
-        with open(path, "w") as outfile:
-            json.dump(payload, outfile, indent=4)
-
+        write_json_output_file("../output/persons-of-interest.json", self.results["yes"])
+        write_json_output_file("../output/non-persons-of-interest.json", self.results["no"])
 
     # given each record in file, determine if individual is a person of interest.
     def filter_relevant_persons(self, data):

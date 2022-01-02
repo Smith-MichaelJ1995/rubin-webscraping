@@ -1,8 +1,9 @@
-from googlesearch import search
 import time
 import random
 import json
 import pandas as pd
+from googlesearch import search
+from helpers import fetch_json_input_file, write_json_output_file
 
 
 class Phase3:
@@ -12,23 +13,13 @@ class Phase3:
         print("STARTING PHASE 3... Resolve Employer For Educating Director")
 
         # Process File, read in all names, return list/dict with all client information
-        self.records = self.fetch_json_input_file(path)
+        self.records = fetch_json_input_file("../output/persons-of-interest-out-of-network-resolved.json")
 
         # iterating through all admins, search for contacts and log them
         self.run()
 
         # write outputs to json
-        self.write_json_output_file(path, self.records)
-
-    # Read in vocational-poi.json from path
-    def fetch_json_input_file(self, path):
-        with open(path, encoding="utf8") as f:
-            return json.load(f)
-
-    # write json results to filesystem
-    def write_json_output_file(self, path, payload):
-        with open(path, "w") as outfile:
-            json.dump(payload, outfile, indent=4)
+        write_json_output_file("../output/persons-of-interest-oon-resolved-with-employers", self.records)
 
     # given the dataframe of admins - generated from .xls file attached, iterate through each person
     # then begin searching for emails

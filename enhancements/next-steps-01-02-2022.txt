@@ -1,0 +1,9 @@
+Action Items:
+1) Parameterize code to handle generic input variables == DONE
+2) Document current usage/functionality of the script == HOLD
+3) Create folder/directory for database/xslx management script.
+4) Build both files. 
+5) Create documentation around usage of database/xslx management script.
+6) Create xslx for vocational education NY State.
+7) Update database/xlsx with newly identified contacts for CTE/Vocational Education NY Script.
+ 

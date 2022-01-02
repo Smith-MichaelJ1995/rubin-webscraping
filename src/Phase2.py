@@ -2,9 +2,10 @@ import json
 import random
 import time
 from googlesearch import search
+from helpers import fetch_json_input_file, write_json_output_file
 
 class Phase2:
-    def __init__(self, path):
+    def __init__(self):
 
         # inform user that we're starting pipeline..
         print("STARTING PHASE 2... Resolve Names For Out-Of-Network Persons")
@@ -16,7 +17,7 @@ class Phase2:
         }
 
         # fetch people of interest
-        vocational_poi = self.fetch_json_input_file(path)
+        vocational_poi = fetch_json_input_file("../output/persons-of-interest.json")
 
         # determine persons of interest is missing the error key
         self.is_name_missing_from_poi(vocational_poi)
@@ -28,7 +29,7 @@ class Phase2:
         self.resolve_profilelink_for_unresolved_poi()
 
         # write persons_of_interest data structure to filesystem
-        self.write_json_output_file("../script-output/cte-poi-names-generated.json", self.records["oon"] + self.records["inn"])
+        write_json_output_file("../output/persons-of-interest-out-of-network-resolved.json", self.records["oon"] + self.records["inn"])
 
     # given unresolvable names from list, resort to setting these fields for each person manually
     def resolve_profilelink_for_unresolved_poi(self):
@@ -180,17 +181,3 @@ class Phase2:
             else:
                 # record person is in-network
                 self.records["inn"].append(poi)
-
-    # fetch phantom results file from system
-    def fetch_json_input_file(self, path):
-        # fetch file from system
-        with open(path, encoding="utf8") as f:
-            return json.load(f)
-
-    # write json results to filesystem
-    def write_json_output_file(self, path, payload):
-        with open(path, "w") as outfile:
-            json.dump(payload, outfile, indent=4)
-
-
-    
