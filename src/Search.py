@@ -141,7 +141,6 @@ class Search:
             emailAddressesForThisWebPage = list(set(emailAddressesForThisWebPage))
 
             # show all email addresses that appear in this search
-            #print(emailAddressesForThisWebPage)
             if len(emailAddressesForThisWebPage) > 0:
                 return emailAddressesForThisWebPage
             

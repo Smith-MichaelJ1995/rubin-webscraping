@@ -22,8 +22,8 @@ class Phase1:
         self.filter_relevant_persons(phantom_search_results)
 
         # write persons_of_interest data structure to filesystem
-        self.write_json_output_file("../current-data/vocational-poi.json", self.results["yes"])
-        self.write_json_output_file("../current-data/vocational-non-poi.json", self.results["no"])
+        self.write_json_output_file("../script-output/poi.json", self.results["yes"])
+        self.write_json_output_file("../script-output/non-poi.json", self.results["no"])
 
 
     # fetch phantom results file from system
@@ -50,14 +50,11 @@ class Phase1:
                 # traverse through all keywords
                 for keyword in self.keywords:
 
-                    # determine if keyword exists in person['currentJob'] field
-                    if keyword not in field.lower():
+                    # determine if keyword exists in field
+                    if keyword.lower() in field.lower():
 
                         # we've identified a person-of-interest by their job title
-                        return False
-
-                # if field is not empty & all keywords have been found in field, then we're interested in this person
-                return True
+                        return True
 
             # no data found indicating that we wan't to persue this person
             return False
@@ -66,7 +63,7 @@ class Phase1:
         for person in data:
 
             # check currentJob/job field for provided keywords
-            if determinePersonOfInterest(person["currentJob"], person) or determinePersonOfInterest(person["job"], person):
+            if ("currentJob" in person and determinePersonOfInterest(person["currentJob"], person)) or ("job" in person and determinePersonOfInterest(person["job"], person)):
                 self.results["yes"].append(person)
             else:
                 self.results["no"].append(person)

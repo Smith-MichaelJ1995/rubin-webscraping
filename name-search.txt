@@ -1,0 +1,248 @@
+STARTING PHASE 2... Resolve Names For Out-Of-Network Persons
+Total Persons Of Interest: 531
+Total Persons Of Interest Out-Of-Network: 254
+processing index: 0
+https://www.linkedin.com/in/melissa-burch-729b809
+{'profileUrl': 'https://www.linkedin.com/in/melissa-burch-729b809', 'currentJob': '', 'pastJob': '', 'job': 'Program Director- Vocational Nursing Program at Kaplan Higher Education', 'location': 'San Antonio, TX', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:30.548Z', 'fullName': 'Melissa Burch'}
+Sleeping for 48 seconds
+
+processing index: 1
+https://www.linkedin.com/in/maribel-madera-20925966
+{'profileUrl': 'https://www.linkedin.com/in/maribel-madera-20925966', 'currentJob': '', 'pastJob': '', 'job': 'Director International Learning and Vocational Education at Wake Techical Community College', 'location': 'United States', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:30.548Z', 'fullName': 'Maribel Madera'}
+Sleeping for 12 seconds
+
+processing index: 2
+https://www.linkedin.com/in/itean-dozier-157a1a13
+{'profileUrl': 'https://www.linkedin.com/in/itean-dozier-157a1a13', 'currentJob': '', 'pastJob': '', 'job': 'Director of Education and Vocational Programs at Boys & Girls Clubs of Atlantic City', 'location': 'Atlantic City, NJ', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:30.548Z', 'fullName': 'Itean Dozier'}
+Sleeping for 27 seconds
+
+processing index: 3
+https://www.linkedin.com/in/thomas-kurzhal-2a506b21
+{'profileUrl': 'https://www.linkedin.com/in/thomas-kurzhal-2a506b21', 'currentJob': 'Director of Adult Education at Michigan City Area Schools', 'pastJob': '', 'job': 'Director of Adult Education/ Assistant Director of Vocational Education', 'location': 'South Bend, IN', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:30.548Z', 'fullName': 'Thomas Kurzhal'}
+Sleeping for 44 seconds
+
+processing index: 4
+https://www.linkedin.com/in/lyell-stark-0a393b13
+{'profileUrl': 'https://www.linkedin.com/in/lyell-stark-0a393b13', 'currentJob': 'Director at Good Shepherd Manor', 'pastJob': '', 'job': 'Director of Education & Vocational Programs @ GSM', 'location': 'Bourbonnais, IL', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:30.548Z', 'fullName': 'Lyell Stark'}
+Sleeping for 19 seconds
+
+processing index: 5
+https://www.linkedin.com/in/melissa-manrique-3659174b
+{'profileUrl': 'https://www.linkedin.com/in/melissa-manrique-3659174b', 'currentJob': '', 'pastJob': '', 'job': 'Director of Education at South Texas Vocational Technical Institute', 'location': 'McAllen, TX', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:30.548Z', 'fullName': 'Melissa Manrique'}
+Sleeping for 57 seconds
+
+processing index: 6
+https://www.linkedin.com/in/melissa-manrique-3659174b
+{'profileUrl': 'https://www.linkedin.com/in/melissa-manrique-3659174b', 'currentJob': '', 'pastJob': '', 'job': 'Director of Education at South Texas Vocational Technical Institute', 'location': 'Brownsville, TX', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:30.548Z', 'fullName': 'Melissa Manrique'}
+Sleeping for 48 seconds
+
+processing index: 7
+https://www.linkedin.com/in/jeannie-applegate-90443668
+{'profileUrl': 'https://www.linkedin.com/in/jeannie-applegate-90443668', 'currentJob': '', 'pastJob': '', 'job': 'Director of Education at Palm Beach Vocational Institute', 'location': 'Lake Worth, FL', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:34.761Z', 'fullName': 'Jeannie Applegate'}
+Sleeping for 13 seconds
+
+processing index: 8
+https://www.linkedin.com/in/don-raydo-09b83544
+{'profileUrl': 'https://www.linkedin.com/in/don-raydo-09b83544', 'currentJob': '', 'pastJob': 'Cooperative Education Coordinator at Seneca Highlands IU9', 'job': 'Director of Vocational Education at Seneca Highlands IU 9', 'location': 'Port Allegany, PA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:34.761Z', 'fullName': 'Don Raydo'}   
+Sleeping for 43 seconds
+
+processing index: 9
+https://www.linkedin.com/in/estherkotik
+{'profileUrl': 'https://www.linkedin.com/in/estherkotik', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C4D03AQEfNo2kc5HFCw/profile-displayphoto-shrink_100_100/0/1516510015456?e=1635379200&v=beta&t=QiK-ui7PkNAjbZkD2T1eR4x9tdrPFyYzw2HW6-pD4RU', 'currentJob': '', 'pastJob': 'Director at Vocational Education Center', 'job': 'Director of Vocational Education Center (Jersey City)', 'location': 'Jersey City, NJ', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:34.761Z', 'fullName': 'estherkotik'}
+Sleeping for 40 seconds
+
+processing index: 10
+https://www.linkedin.com/in/ayat-hussien-2a2315149
+{'profileUrl': 'https://www.linkedin.com/in/ayat-hussien-2a2315149', 'currentJob': '', 'pastJob': '', 'job': 'Director of vocational 
+education at Ministry of Education', 'location': 'Iraq', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:34.761Z', 'fullName': 'Ayat Hussien'}
+Sleeping for 51 seconds
+
+processing index: 11
+https://www.linkedin.com/in/jim-orr-996a987b
+{'profileUrl': 'https://www.linkedin.com/in/jim-orr-996a987b', 'currentJob': '', 'pastJob': '', 'job': 'Vocational Education Director at Los Banos Unified School District', 'location': 'Los Banos, CA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:34.761Z', 'fullName': 'Jim Orr'}
+Sleeping for 23 seconds
+
+processing index: 12
+https://www.linkedin.com/in/juma-alkaabi-5a0150ba
+{'profileUrl': 'https://www.linkedin.com/in/juma-alkaabi-5a0150ba', 'currentJob': '', 'pastJob': '', 'job': 'Director at Vocational Education and Training Institute', 'location': 'United Arab Emirates', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:34.761Z', 'fullName': 'Juma Alkaabi'}
+Sleeping for 47 seconds
+
+processing index: 13
+https://www.linkedin.com/in/jim-cammon-20476347
+{'profileUrl': 'https://www.linkedin.com/in/jim-cammon-20476347', 'currentJob': '', 'pastJob': '', 'job': 'Director of Vocational Education at Yukon Flats School District', 'location': 'Fort Yukon, AK', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:34.761Z', 'fullName': 'Jim Cammon'}
+Sleeping for 43 seconds
+
+processing index: 14
+https://www.linkedin.com/in/shanecreynolds8
+{'profileUrl': 'https://www.linkedin.com/in/shanecreynolds8', 'currentJob': 'Director of Vocational Education at Lake Tahoe Community College', 'pastJob': '', 'job': 'Director of Vocational Education at Lake Tahoe Community College and Owner, Fundamental Training Solutions', 'location': 'South Lake Tahoe, CA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:34.761Z', 'fullName': 'shanecreynolds8'}
+Sleeping for 31 seconds
+
+processing index: 15
+https://www.linkedin.com/in/apavliskodirectoradulted
+{'profileUrl': 'https://www.linkedin.com/in/apavliskodirectoradulted', 'currentJob': '', 'pastJob': '', 'job': 'Director of Adult Education at Monmouth County Vocational School District', 'location': 'Freehold, NJ', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:39.290Z', 'fullName': 'apavliskodirectoradulted'}
+Sleeping for 45 seconds
+
+processing index: 16
+https://www.linkedin.com/in/donna-burrill-89619b33
+{'profileUrl': 'https://www.linkedin.com/in/donna-burrill-89619b33', 'currentJob': 'Director Business, Technology, Vocational, and Career Education at Brockton Public Schools (retired)', 'pastJob': '', 'job': 'Director Business, Technology, Vocational, and Career Education at Brockton Public Schools', 'location': 'Brockton, MA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:39.290Z', 'fullName': 'Donna Burrill'}
+Sleeping for 29 seconds
+
+processing index: 17
+https://www.linkedin.com/in/anna-marie-allen-2260582b
+{'profileUrl': 'https://www.linkedin.com/in/anna-marie-allen-2260582b', 'currentJob': 'Skills: Higher Education', 'pastJob': '', 'job': 'Director of Vocational Education at Raleigh County Schools', 'location': 'Beckley, WV', 'url': '', 'query': 'Director Vocational 
+Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:39.290Z', 'fullName': 'Anna Marie'}
+Sleeping for 49 seconds
+
+processing index: 18
+https://www.linkedin.com/in/jesus-travieso-5b1b3789
+{'profileUrl': 'https://www.linkedin.com/in/jesus-travieso-5b1b3789', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C4E03AQEpKaqZcxPxrA/profile-displayphoto-shrink_100_100/0/1524281077564?e=1635379200&v=beta&t=-bkEz-4khfcLP7QDzaLhk9JzezcBvh8aYsdvVZV1DwE', 'currentJob': '', 'pastJob': '', 'job': 'Director Of Education at Compu-Med Vocational Careers Corp', 'location': 'Hialeah, FL', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:39.290Z', 'fullName': 'Jesus Travieso'}
+Sleeping for 40 seconds
+
+processing index: 19
+https://www.linkedin.com/in/maria-mangano-464a7237
+{'profileUrl': 'https://www.linkedin.com/in/maria-mangano-464a7237', 'currentJob': '', 'pastJob': '', 'job': 'Director of Career Services/ Vocational Education Chair at Mercy Vocational High School', 'location': 'Philadelphia, PA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:39.290Z', 'fullName': 'Maria Mangano'}
+Sleeping for 54 seconds
+
+processing index: 20
+https://au.linkedin.com/in/ericmarchesani
+{'profileUrl': 'https://au.linkedin.com/in/ericmarchesani', 'currentJob': '', 'pastJob': '', 'job': 'Managing Director at Institue of Vocational Education and Training', 'location': 'Greater Melbourne Area', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:39.290Z', 'fullName': 'ericmarchesani'}
+Sleeping for 49 seconds
+
+processing index: 21
+https://na.linkedin.com/in/muvatera-ndjoze-siririka-648b0a73
+{'profileUrl': 'https://na.linkedin.com/in/muvatera-ndjoze-siririka-648b0a73', 'currentJob': '', 'pastJob': '', 'job': 'Director Vocational Education and Training at Ministry of Education,Namibia', 'location': 'Namibia', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:39.290Z', 'fullName': 'Muvatera Ndjoze'}
+Sleeping for 30 seconds
+
+processing index: 22
+https://www.linkedin.com/in/scott-varner-59771663
+{'profileUrl': 'https://www.linkedin.com/in/scott-varner-59771663', 'currentJob': '', 'pastJob': '', 'job': 'Director of Vocational and Adult Education at Marshall County Schools', 'location': 'Moundsville, WV', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:39.290Z', 'fullName': 'Scott Varner'}
+Sleeping for 56 seconds
+
+processing index: 23
+No Results Found For Search: 'Assistant Director/Supervisor of Vocational Education at Forbes Road Career and Technology Center, Linkedin Profile, Youngwood, PA'
+processing index: 24
+https://www.linkedin.com/in/james-sanregret-0a8781129
+{'profileUrl': 'https://www.linkedin.com/in/james-sanregret-0a8781129', 'currentJob': 'Director of Vocational at Devreux Georgia Treatment Network', 'pastJob': '', 'job': 'Director of Vocational at Devreux Georgia Treatment Network and Primary/Secondary Education Consultant', 'location': 'Smyrna, GA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:42.940Z', 'fullName': 'James Sanregret'}
+Sleeping for 34 seconds
+
+processing index: 25
+https://www.linkedin.com/in/doug-presta-66b08179
+{'profileUrl': 'https://www.linkedin.com/in/doug-presta-66b08179', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C4E03AQEJ0cALbHJErQ/profile-displayphoto-shrink_100_100/0/1516669526685?e=1635379200&v=beta&t=i7NsbxCMF2kRlsbzhNP9JIfMLkBPN9KrqShOwFkIjKU', 
+'currentJob': 'Director of Vocational Education at Providence Health & Services', 'pastJob': '', 'job': 'Director of Vocational Education at Providence Health &amp;amp; Services', 'location': 'Spokane, WA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:42.940Z', 'fullName': 'Doug Presta'}
+Sleeping for 24 seconds
+
+processing index: 26
+https://www.linkedin.com/in/gary-jelinek-5304326
+{'profileUrl': 'https://www.linkedin.com/in/gary-jelinek-5304326', 'currentJob': 'Executive Director at Pioneer Pacific College, Wilsonville', 'pastJob': '', 'job': 'Experienced Vocational School / Higher Education Leader & Director', 'location': 'Sherwood, OR', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:42.940Z', 'fullName': 'Gary Jelinek'}
+Sleeping for 28 seconds
+
+processing index: 27
+https://in.linkedin.com/in/sudesh-kumar-68780b119
+{'profileUrl': 'https://in.linkedin.com/in/sudesh-kumar-68780b119', 'currentJob': '', 'pastJob': '', 'job': 'Director at Centre for Vocational Education and Training', 'location': 'Ghaziabad', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:42.940Z', 'fullName': 'Sudesh Kumar'}
+Sleeping for 49 seconds
+
+processing index: 28
+https://np.linkedin.com/in/pushpa-wagle-73b04924
+{'profileUrl': 'https://np.linkedin.com/in/pushpa-wagle-73b04924', 'currentJob': 'Director, Council for Technical Education...', 'pastJob': '', 'job': 'Director, Council for Technical Education and Vocational Training at Council for Technical Education and Vocational Training', 'location': 'Kathmandu', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:48.644Z', 'fullName': 'Pushpa Wagle'}
+Sleeping for 9 seconds
+
+processing index: 29
+https://ke.linkedin.com/in/joel-mulatya-b945bb175
+{'profileUrl': 'https://ke.linkedin.com/in/joel-mulatya-b945bb175', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C5603AQEKyJrbJL4Z5w/profile-displayphoto-shrink_100_100/0/1543386312114?e=1635379200&v=beta&t=rMAlX4JmNEB3p6G9bBXaawOi8cKDe8GH5nHoduhsV-M', 'currentJob': 'Director vocational education and training at County government of west Pokot', 'pastJob': '', 'job': 'Director vocational education and training at County government of west Pokot', 'location': 'Kenya', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:48.644Z', 'fullName': 'Joel Mulatya'}
+Sleeping for 41 seconds
+
+processing index: 30
+https://tz.linkedin.com/in/habib-bukko-0210961a
+{'profileUrl': 'https://tz.linkedin.com/in/habib-bukko-0210961a', 'currentJob': '', 'pastJob': '', 'job': 'Regional Director at Vocational Education and Training Authority', 'location': 'Tanzania', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:48.644Z', 'fullName': 'Habib Bukko'}
+Sleeping for 35 seconds
+
+processing index: 31
+No Results Found For Search: 'Director, Education & Vocational Services at Hale Kipa, Inc., Linkedin Profile, Kaneohe, HI'
+processing index: 32
+https://ca.linkedin.com/in/abdullahsnobar
+{'profileUrl': 'https://ca.linkedin.com/in/abdullahsnobar', 'currentJob': 'Managing Director at DMZ Ventures', 'pastJob': '', 'job': 
+'Board of Director at Vocational Education Training Academy (VETA)', 'location': 'Malaysia', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:48.644Z', 'fullName': 'abdullahsnobar'}
+Sleeping for 49 seconds
+
+processing index: 33
+https://www.linkedin.com/in/keith-ozols-b7196aa
+{'profileUrl': 'https://www.linkedin.com/in/keith-ozols-b7196aa', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C5603AQGtvQ_WuJ2xiA/profile-displayphoto-shrink_100_100/0/1591999414204?e=1635379200&v=beta&t=jognkTVb65zuFQ5na5RfFvnbSYKblp11A4P2IQRK0-4', 'currentJob': 'Past: Workforce and Youth Manager at State of Oregon - Statewide management of education and workforce vocational programs and partnerships:     • Youth...', 'pastJob': '', 'job': 'Director at Vocational Rehabitation', 'location': 'Portland, OR', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:48.644Z', 'fullName': 'Keith Ozols'}
+Sleeping for 53 seconds
+
+processing index: 34
+https://in.linkedin.com/in/sag-moeson-4629271b6
+{'profileUrl': 'https://in.linkedin.com/in/sag-moeson-4629271b6', 'currentJob': '', 'pastJob': '', 'job': 'DIRECTOR VOCATIONAL EDUCATION at BSS', 'location': 'Thanjavur', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:48.644Z', 'fullName': 'Sag Moeson'}
+Sleeping for 11 seconds
+
+processing index: 35
+https://www.linkedin.com/in/meg-keeley-94711018
+{'profileUrl': 'https://www.linkedin.com/in/meg-keeley-94711018', 'currentJob': '', 'pastJob': 'Coordinator of Adult Education at Lutheran Settlement House', 'job': 'Assistant Director of Education at De La Salle Vocational', 'location': 'Bucks County, PA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:48.644Z', 'fullName': 'Meg Keeley'}
+Sleeping for 19 seconds
+
+processing index: 36
+https://www.linkedin.com/in/raymond-jimenez-385b9ba5
+{'profileUrl': 'https://www.linkedin.com/in/raymond-jimenez-385b9ba5', 'currentJob': '', 'pastJob': '', 'job': 'President/ School Director at RAVE LLC - Ready to Achieve with Vocational Education', 'location': 'Fresno, CA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:48.644Z', 'fullName': 'Raymond Jimenez'}
+Sleeping for 36 seconds
+
+processing index: 37
+https://www.linkedin.com/in/lee-dorman-9898b82b
+{'profileUrl': 'https://www.linkedin.com/in/lee-dorman-9898b82b', 'currentJob': "Virginia's Senior Board of Director's Member at national association of vocational education...", 'pastJob': '', 'job': "Virginia's Senior Board of Director's Member at national association of vocational education of china", 'location': 'New Alexandria, VA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:53.722Z', 'fullName': 'Lee Dorman'}
+Sleeping for 24 seconds
+
+processing index: 38
+https://www.linkedin.com/in/amy-hatmaker-7a326b28
+{'profileUrl': 'https://www.linkedin.com/in/amy-hatmaker-7a326b28', 'currentJob': 'Skills: Higher Education', 'pastJob': '', 'job': 'Director at Texas Vocational Schools', 'location': 'Victoria, TX', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:53.722Z', 'fullName': 'Amy Hatmaker'}
+Sleeping for 60 seconds
+
+processing index: 39
+https://www.linkedin.com/in/jesse-dempsen-aa4792200
+{'profileUrl': 'https://www.linkedin.com/in/jesse-dempsen-aa4792200', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C5603AQESoonT77rKiA/profile-displayphoto-shrink_100_100/0/1617647780598?e=1635379200&v=beta&t=DgPkCDvh7n8hyB-hvxYZ8n5bDze1KlAa0BCjjZP0qG8', 'currentJob': '', 'pastJob': 'After school program director at Sacred Road Ministries', 'job': 'Technology program director at Swan Vocational Enterprises', 'location': 'Harrah, WA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:53.722Z', 'fullName': 'Jesse Dempsen'}
+Sleeping for 21 seconds
+
+processing index: 40
+https://www.linkedin.com/in/harlan-barbanell-98685084
+{'profileUrl': 'https://www.linkedin.com/in/harlan-barbanell-98685084', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C4E03AQEMO2YrSLSlAQ/profile-displayphoto-shrink_100_100/0/1516941809680?e=1635379200&v=beta&t=XEOHWAb9bhlT4o3TZEzHPFOpX5Ph87ORienhss3fJZY', 'currentJob': 'School Principal at 18 District Schools as well as Director of Vocational Education at Los Angeles...', 'pastJob': '', 'job': 'School Principal at 18 District Schools and Director of Vocational Education at Los Angeles Unified School District', 'location': 'Los Angeles County, CA', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:53.723Z', 'fullName': 'Harlan Barbanell'}
+Sleeping for 7 seconds
+
+processing index: 41
+https://www.linkedin.com/in/jolly-michael-30bb8544
+{'profileUrl': 'https://www.linkedin.com/in/jolly-michael-30bb8544', 'currentJob': '', 'pastJob': '', 'job': 'Director of Athletics, 
+Vocational Education, Enrichment at Troy School District', 'location': 'Royal Oak, MI', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:53.723Z', 'fullName': 'Jolly Michael'}
+Sleeping for 23 seconds
+
+processing index: 42
+https://ng.linkedin.com/in/kehinde-olu-osinaike-a88743206
+{'profileUrl': 'https://ng.linkedin.com/in/kehinde-olu-osinaike-a88743206', 'currentJob': '', 'pastJob': '', 'job': 'Director Of Vocational Education. at Fed.Min.of Education', 'location': 'Abuja', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:57.988Z', 'fullName': 'Kehinde Olu'}
+Sleeping for 16 seconds
+
+processing index: 43
+https://www.linkedin.com/in/tawana-gilbert-mrc-crc-15407b165
+{'profileUrl': 'https://www.linkedin.com/in/tawana-gilbert-mrc-crc-15407b165', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C4E03AQECA7TAIX7GgQ/profile-displayphoto-shrink_100_100/0/1571755739007?e=1635379200&v=beta&t=hqeTK1FTt8MScIAMmg_eEmKDGwQSLfDF6O9ACU1G6mU', 'currentJob': "Area 1 Director at Florida's Department of Education, Vocational Rehabilitation - As Area Director for Vocational Rehabilitation, I provide oversite to nine full service offices...", 'pastJob': '', 'job': "Area 1 Director at Florida's Department of Education, Vocational Rehabilitation", 'location': 'Milton, FL', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:57.989Z', 'fullName': 'Tawana Gilbert'}
+Sleeping for 33 seconds
+
+processing index: 44
+https://www.linkedin.com/in/jeremy-plothow-54100647
+{'profileUrl': 'https://www.linkedin.com/in/jeremy-plothow-54100647', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C5603AQH7i7bOjhPq7g/profile-displayphoto-shrink_100_100/0/1517447083635?e=1635379200&v=beta&t=YCQwB_Qy5Nv1c8G-WA3ruZ9Zr4393gEwtDtUsrGVAo8', 'currentJob': 'Director at Affiliates Vocational Services', 'pastJob': '', 'job': 'Director, Affiliates Vocational Services', 'location': 'Idaho Falls, ID', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:23:57.989Z', 'fullName': 'Jeremy Plothow'}
+Sleeping for 3 seconds
+
+processing index: 45
+https://www.linkedin.com/in/john-martin-8147501b0
+{'profileUrl': 'https://www.linkedin.com/in/john-martin-8147501b0', 'currentJob': '', 'pastJob': '', 'job': 'Director of Special Education at Tri County Regional Vocational Technical High School', 'location': 'Franklin, MA', 'url': '', 'query': 'Director Vocational 
+Education', 'category': 'People', 'timestamp': '2021-08-22T19:24:01.345Z', 'fullName': 'John Martin'}
+Sleeping for 44 seconds
+
+processing index: 46
+https://au.linkedin.com/in/sue-birkett-16361293
+{'profileUrl': 'https://au.linkedin.com/in/sue-birkett-16361293', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C4E03AQFkA5Mw3FlBCA/profile-displayphoto-shrink_100_100/0/1516856227830?e=1635379200&v=beta&t=GtPhToTSws09mE9WzOJVY7G3mftMtGWA04YLuUiehmw', 'currentJob': 'Director Technology andVocational Education at ACT Education and Training Directorate', 'pastJob': '', 'job': 'Director of Vocational Education and Careers at Gungahlin College', 'location': 'Canberra, CT', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:24:01.345Z', 'fullName': 'Sue Birkett'}
+Sleeping for 18 seconds
+
+processing index: 47
+No Results Found For Search: 'Director of Vocational Education & Training at Think: Education Group, Linkedin Profile, Greater Sydney Area'
+processing index: 48
+https://www.linkedin.com/in/annette-caruso-7b16331b
+{'profileUrl': 'https://www.linkedin.com/in/annette-caruso-7b16331b', 'profileImageUrl': 'https://media-exp1.licdn.com/dms/image/C4D03AQH9kj46dzWcCA/profile-displayphoto-shrink_100_100/0/1516814786086?e=1635379200&v=beta&t=nngxnsBoaJLh7j6_Iky-ee5wWQLZSDnXvyK66nEqQFU', 'currentJob': '', 'pastJob': '', 'job': 'Co-Executive Director, Southwest Alaska Vocational & Education Center', 'location': 'South Naknek, AK', 'url': '', 'query': 'Director Vocational Education', 'category': 'People', 'timestamp': '2021-08-22T19:24:04.995Z', 'fullName': 'Annette Caruso'}
+Sleeping for 50 seconds
+
+processing index: 49
+The Following Error Has Occured: 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3DDirector%2Bof%2BVocational%2BNursing%2Band%2BAllied%2BHealth%2BProgram%2Bat%2BPrime%2BCareer%2BCollege,%2BLinkedin%2BProfile,%2BAmerican%2BCanyon,%2BCA%26num%3D6%26hl%3Den&hl=en&q=EhAmA3CAhgGUANSj_WYoY9WaGMDcmooGIhDPuSFG59b37aFKPSi_0pFLMgFy 
+Writing To Filesystem...
