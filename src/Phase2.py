@@ -23,6 +23,7 @@ class Phase2:
         self.is_name_missing_from_poi(vocational_poi)
 
         # traverse through all poi that have the error key
+        # resolve out of network link through code.
         #self.fetch_profilelink_for_poi()
 
         # handle missing persons who could not be resolved
