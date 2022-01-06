@@ -48,10 +48,8 @@ class Phase2:
             position = ""
 
             # set position=currentJob by default, if this key is empty, then use job
-            if 'currentJob' in person and len(person['currentJob']) > 0:
-                position = person['currentJob']
-            else:
-                position = person['job']
+            # field, subField, obj
+            position = does_field_exist_value_non_null('currentJob', 'job', person)
 
             # create placeholder for search string text
             searchStringText = "{}, Linkedin Profile, {}".format(position, person['location'])
@@ -83,12 +81,16 @@ class Phase2:
 
             #print("processing index: {}".format(idx))
 
-            # blank targetProfileURL variable
+            # blank targetProfileURL & position variable
             targetProfileURL = ""
+            position = ""
             links = []
 
             # set position=currentJob by default, if this key is empty, then use job
-            position = person['currentJob'] if len(person['currentJob']) > 0 else person['job']
+            if does_field_exist_value_non_null('currentJob', person):
+                position = person['currentJob']
+            else:
+                position = person['job']
 
             # create placeholder for search string text
             searchStringText = "{}, Linkedin Profile, {}".format(position, person['location'])

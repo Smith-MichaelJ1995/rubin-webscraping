@@ -9,7 +9,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By 
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as EC 
-from helpers import fetch_json_input_file, write_json_output_file
+from helpers import fetch_json_input_file, write_json_output_file, does_field_exist_value_non_null
 
 
 class Phase4:
@@ -109,7 +109,7 @@ class Phase4:
 
             # extract Institution Name & CSO test fields
             name = row['fullName']
-            job = row['currentJob'] if len(row['currentJob']) > 0 else row['job']
+            job = row['currentJob'] if does_field_exist_value_non_null('currentJob', row) else row['job']
             employer = row['employer']
             email = row['email']
 

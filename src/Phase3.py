@@ -3,7 +3,7 @@ import random
 import json
 import pandas as pd
 from googlesearch import search
-from helpers import fetch_json_input_file, write_json_output_file
+from helpers import fetch_json_input_file, write_json_output_file, does_field_exist_value_non_null
 
 
 class Phase3:
@@ -13,7 +13,7 @@ class Phase3:
         print("STARTING PHASE 3... Resolve Employer For Educating Director")
 
         # Process File, read in all names, return list/dict with all client information
-        self.records = fetch_json_input_file("../output/persons-of-interest-out-of-network-resolved.json")
+        self.records = fetch_json_input_file("../output/{}".format(path))
 
         # iterating through all admins, search for contacts and log them
         self.run()
@@ -33,9 +33,9 @@ class Phase3:
             separator = "at "
 
             # calculate employer based on "at" string in currentJob/job field
-            if len(person['currentJob']) > 0 and separator in person['currentJob']:
+            if does_field_exist_value_non_null('currentJob', person) and separator in person['currentJob']:
                 position = person['currentJob'].split(separator)[-1]
-            elif len(person['job']) > 0 and separator in person['job']:
+            elif does_field_exist_value_non_null('job', person) and separator in person['job']:
                 position = person['job'].split(separator)[-1]
             else:
                 position = "None"
