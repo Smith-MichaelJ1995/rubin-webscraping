@@ -17,10 +17,12 @@ class Phase4:
 
         # Process File, read in all names, return list/dict with all client information
         inputJson = fetch_json_input_file("../output/{}".format(srcJsonPath))
+
+        # Create iterable pd dataframe object
         self.personsListDataFrame = self.build_data_frame(inputJson)
 
-        # iterating through all admins, search for contacts and log them
-        # self.run()
+        # iterating through all specified persons, search for contacts and log them
+        self.run()
 
         # write outputs to .xslx
         self.write_output_file_to_xls("../output/{}".format(destXlsxPath), self.personsListDataFrame)
@@ -116,9 +118,9 @@ class Phase4:
             # create placeholder for searchStringText from search
             personLastName = name.split(" ")[-1]
 
-            #if index == 200:
-            #    print("Stopping at 25 to validate results")
-            #    break
+            if index == 10:
+               print("Stopping at 10 to validate results")
+               break
 
             # do we have an email address already?
             if "@" not in email: 
@@ -127,12 +129,12 @@ class Phase4:
                 if employer != "None":
 
                     # Combine School District Name, Faculty Name into single searchable text that we'll query via google.
-                    searchStringText = "{}, {}, Email Information".format(name, employer)
+                    searchStringText = "{}, {}, Email Address".format(name, employer)
 
                 else:
 
                     # Combine School District Name, Faculty Name into single searchable text that we'll query via google.
-                    searchStringText = "{}, {}, Email Information".format(name, job)
+                    searchStringText = "{}, {}, Email Address".format(name, job)
 
                 # CALL FUNCTION: find email suffix based on employer
                 # state those within field in this dataframe.
@@ -151,7 +153,7 @@ class Phase4:
                     if "-" in personLastName:
                         personLastName = personLastName.split("-")[0]
 
-                    # iterate through all resulting webpages, pass CSO as that will be used to find person in question 
+                    # iterate through all resulting webpages, pass name as that will be used to find person in question 
                     # make sure that email address search will be all through lowercases
                     emailAddressResultForThisPerson = self.traverse_through_web_pages(resultingWebPages, personLastName.lower())
 
@@ -202,11 +204,10 @@ class Phase4:
                 # traverse through all email addresses for this web page
                 for emailAddress in emailAddressesForThisWebPage:
                     # check if lastname in email address
-                    if personLastName in emailAddress.lower():
+                    if personLastName.lower() in emailAddress.lower():
                         validEmailAddresses.append(emailAddress.lower())
             
-        # if we made it this far, we didn't find any results and are giving up for this person
-        # remove duplicates via list(set())
+        # remove duplicates via "list(set())" provide results to caller
         return list(set(validEmailAddresses))
 
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
