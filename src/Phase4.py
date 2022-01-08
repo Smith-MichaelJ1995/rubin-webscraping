@@ -13,19 +13,30 @@ from helpers import fetch_json_input_file, write_json_output_file, does_field_ex
 
 
 class Phase4:
-    def __init__(self, srcJsonPath, destXlsxPath):
+    def __init__(self, databaseFilePath="../../webscraping-backend/data/database.xls"):
 
         # Process File, read in all names, return list/dict with all client information
-        inputJson = fetch_json_input_file("../output/{}".format(srcJsonPath))
+        #inputJson = fetch_json_input_file("../output/{}".format(srcJsonPath))
+        # read excel from filesystem
+        xls = pd.ExcelFile(databaseFilePath)
 
-        # Create iterable pd dataframe object
-        self.personsListDataFrame = self.build_data_frame(inputJson)
+        # parse primary sheet into dataframe
+        df = xls.parse('potentials')
+
+        # convert the following pandas column types from 'float' to 'string' 
+        df['currentJob'] = df['currentJob'].astype(str)
+        df['email'] = df['email'].astype(str)
+        df['emailSearched'] = df['emailSearched'].astype(str)
+
+        # separate dataframes by queried & unqueried
+        self.dfUnqueried = df.loc[df['emailSearched'] == "False"]
+        self.dfQueried = df.loc[df['emailSearched'] == "True"]
 
         # iterating through all specified persons, search for contacts and log them
         self.run()
 
         # write outputs to .xslx
-        self.write_output_file_to_xls("../output/{}".format(destXlsxPath), self.personsListDataFrame)
+        self.write_output_file_to_xls('../output/email-query-output.xls', pd.concat([self.dfQueried, self.dfUnqueried], ignore_index=True))
 
     # Read in vocational-poi.json from path
     def build_data_frame(self, data):
@@ -96,15 +107,12 @@ class Phase4:
 
                 # check if email suffix section within list of approved email suffixes for this record
 
-                
-
-
     # given the dataframe of admins - generated from .xls file attached, iterate through each person
     # then begin searching for emails
     def run(self):
 
         # traverse through all search results one by one
-        for index, row in self.personsListDataFrame.iterrows(): 
+        for index, row in self.dfUnqueried.iterrows(): 
 
             # instantiate search string text as empty to start
             searchStringText = ""
@@ -136,6 +144,10 @@ class Phase4:
                     # Combine School District Name, Faculty Name into single searchable text that we'll query via google.
                     searchStringText = "{}, {}, Email Address".format(name, job)
 
+                # define search string text
+                print(searchStringText)
+                input()
+
                 # CALL FUNCTION: find email suffix based on employer
                 # state those within field in this dataframe.
                 # CALL FUNCTION: find possible email address matches based on person's last name, letters in first, valid email address suffixes 
@@ -161,7 +173,7 @@ class Phase4:
                     print("Resulting Email Address For Person: {} = {}".format(personLastName, emailAddressResultForThisPerson))
 
                     # record resulting email address, continue processing
-                    self.personsListDataFrame.at[index, 'email'] = emailAddressResultForThisPerson
+                    self.dfUnqueried.at[index, 'email'] = emailAddressResultForThisPerson
 
                     # slow down search too avoid 429 too many requests
                     pauseTime = random.randint(1, 60)
@@ -176,11 +188,14 @@ class Phase4:
                     print("Error has occured.. writing data structure to file")
 
                     # write outputs to .xslx
-                    self.write_output_file('cte-educators-admins.xls', self.personsListDataFrame)
+                    self.write_output_file_to_xls('../output/email-query-output.xls', pd.concat([self.dfQueried, self.dfUnqueried], ignore_index=True))
             
             else:
 
                 print("Person: {}, Email Already Found: {}".format(person['fullName'], person['email']))
+
+            # NOTE: THIS PERSON HAS BEEN QUERIED FOR EMAIL, THEREFORE UPDATE SEARCH TO TRUE
+            row['emailSearched'] = "True"
 
     # given web pages returned by search, iterate through them and search for email addresses
     def traverse_through_web_pages(self, resultingWebPages, personLastName):
@@ -255,20 +270,6 @@ class Phase4:
         # provide valid links back to caller
         return validLinks
 
-    def filterLinksForSchoolEmailSuffix(self, links):
-        # acceptable webpages
-        validLinks = []
-
-        # iterate through all links
-        for link in links:
-
-            # I only want links with .org .edu .us in my links, I also must have https
-            if ".edu" in link or ".org" in link or ".us" in link:
-                validLinks.append(link)
-
-        # provide valid links back to caller
-        return validLinks
-
     # scrape for email address in provided webpage
     def fetch_email_addresses_by_webpage(self, url):
 
@@ -296,4 +297,4 @@ class Phase4:
         # perform regular expression search on email
         emails = re.findall("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)", get_source)
         
-        return self.filterLinksForSchoolEmailSuffix(emails)
+        return self.filterLinksForSafeWebpages(emails)

@@ -23,7 +23,7 @@ from Phase4 import Phase4
 ##########
 ## PHASE 1: Filter For Relevant Persons
 ##########
-#Phase1(phantomInputJson="new-york-state-cte-12-30-2021.json", keywords=["CTE","director","coordinator"])
+#Phase1(phantomInputJson="new-york-state-cte-12-30-2021.json", keywords=["CTE"])
 
 ##########
 ## PHASE 2: Resolve Names For Relevant Persons Appearing Out-Of-Network
@@ -33,9 +33,9 @@ from Phase4 import Phase4
 ##########
 ## PHASE 3: Compute Employers For People Of Interest
 ##########
-# Phase3()
+#Phase3(path="cte-poi-names-generated.json")
 
 ##########
 ## PHASE 4: Searching For Emails.. For Each POI having a name/profileLink defined.
 ##########
-Phase4(srcJsonPath = "persons-of-interest-oon-resolved-with-employers.json", destXlsxPath = "persons-of-interest-emails-generated.xls")
+Phase4()
