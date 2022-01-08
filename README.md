@@ -15,8 +15,10 @@ Referencing tutorial: https://zenscrape.com/web-scraping-with-python/#:~:text=Ad
     - Enter 'src' directory & invoke: py index.py
 3. *Phase 2*: 
     - Uncomment Phase2()
-        - Resolve names & profile links.
+        - Resolve names & profileURL links.
     - Enter 'src' directory & invoke: py index.py.
+    - At this point in time, run the 'webscape-backend' script to determine which records are truly unique, Should operate on database.xls.
 4. *Phase 3*: 
     - Provide path to "../output/persons-of-interest-out-of-network-resolved.json".
     - Uncomment Phase3().
+    - Compute 'employers' for each individual, save to '../output/persons-of-interest-oon-resolved-with-employers'.
