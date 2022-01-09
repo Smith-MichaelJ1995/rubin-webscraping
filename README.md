@@ -6,7 +6,6 @@ Referencing tutorial: https://zenscrape.com/web-scraping-with-python/#:~:text=Ad
 1. *Phase0.py*: (Generating links to be searched on LinkedIn through phantombuster).
     - Procedure:
         - Uncomment the following line on index.py: 
-        ```
             Phase0(keywords = [
                 "business teacher",
                 "marketing teacher",
@@ -17,7 +16,6 @@ Referencing tutorial: https://zenscrape.com/web-scraping-with-python/#:~:text=Ad
                 "entrepreneurship teacher",
                 "CTE coordinator"
             ])
-        ```
         - Replace with keywords that you'd like to search for.
         - Invoke script:
             - ```cd src & py index.py```
