@@ -120,6 +120,7 @@ class Phase4:
             # extract Institution Name & CSO test fields
             name = row['fullName']
             job = row['currentJob'] if does_field_exist_value_non_null('currentJob', row) else row['job']
+            job = row['job']
             employer = row['employer']
             email = row['email']
 
@@ -133,20 +134,24 @@ class Phase4:
             # do we have an email address already?
             if "@" not in email: 
 
+                searchStringText = "{} at {}, email address contact information".format(name, employer)
+
                 # handle case of employer being "None"
                 if employer != "None":
 
                     # Combine School District Name, Faculty Name into single searchable text that we'll query via google.
-                    searchStringText = "{}, {}, Email Address".format(name, employer)
+                    searchStringText = "{} at {}, email address contact information".format(name, employer)
 
                 else:
 
                     # Combine School District Name, Faculty Name into single searchable text that we'll query via google.
-                    searchStringText = "{}, {}, Email Address".format(name, job)
+                    searchStringText = "{} email address contact information".format(name)
 
                 # define search string text
-                print(searchStringText)
-                input()
+                print("\n")
+                print("Search Query String: {}".format(searchStringText))
+                print("Person Last Name: {}".format(personLastName))
+                #input()
 
                 # CALL FUNCTION: find email suffix based on employer
                 # state those within field in this dataframe.
@@ -156,10 +161,13 @@ class Phase4:
                 # attempting to handle unforseen error and update data structure on output file
                 try:
                     # perform google search
-                    resultingWebPages = search(searchStringText, num_results=5)
+                    resultingWebPages = search(searchStringText, num_results=7)
 
                     # remove spam or other random crap.. avoiding viruses
                     resultingWebPages = self.filterLinksForSafeWebpages(resultingWebPages) 
+
+                    #print("\n")
+                    #print("Webpages Found: {}".format(resultingWebPages))
 
                     # handle '-' character in last names
                     if "-" in personLastName:
@@ -176,7 +184,7 @@ class Phase4:
                     self.dfUnqueried.at[index, 'email'] = emailAddressResultForThisPerson
 
                     # slow down search too avoid 429 too many requests
-                    pauseTime = random.randint(1, 60)
+                    pauseTime = random.randint(1, 90)
                     print("Sleeping for {} seconds".format(pauseTime))
                     print("")
                     time.sleep(pauseTime)
@@ -203,8 +211,12 @@ class Phase4:
         # valid email address container
         validEmailAddresses = []
 
+        #print("\n")
+
         # traverse through web pages
         for index, webpage in enumerate(resultingWebPages):
+
+            #print("processing webpage: {}, url: {}".format(index, webpage))
         
             # call separate selenium module to gather all email addresses located on this webpage
             emailAddressesForThisWebPage = self.fetch_email_addresses_by_webpage(webpage)
@@ -216,14 +228,21 @@ class Phase4:
             #print(emailAddressesForThisWebPage)
             if len(emailAddressesForThisWebPage) > 0:
 
+                #print("Emails Found For URL: {}, total emails: {}".format(webpage, len(emailAddressesForThisWebPage)))
+                #print("Person's Last Name: {}".format(personLastName))
+
                 # traverse through all email addresses for this web page
                 for emailAddress in emailAddressesForThisWebPage:
                     # check if lastname in email address
                     if personLastName.lower() in emailAddress.lower():
                         validEmailAddresses.append(emailAddress.lower())
+
+            # return if we've found at least one hit
+            if len(validEmailAddresses) > 0:
+                return list(set(validEmailAddresses))
             
         # remove duplicates via "list(set())" provide results to caller
-        return list(set(validEmailAddresses))
+        return []
 
             # CLEARLY INDICATE TO CALLER THAT WE'RE PROCESSING A NEW PERSON
             # print("TOTAL # OF EMAIL ADDRESSES RETURNED FOR THIS WEBPAGE: {}".format(len(emailAddressesForThisWebPage)))
@@ -270,6 +289,20 @@ class Phase4:
         # provide valid links back to caller
         return validLinks
 
+    def filterLinksForSchoolEmailSuffix(self, links):
+        # acceptable webpages
+        validLinks = []
+
+        # iterate through all links
+        for link in links:
+
+            # I only want links with .org .edu .us in my links, I also must have https
+            if ".edu" in link or ".org" in link or ".us" in link:
+                validLinks.append(link)
+
+        # provide valid links back to caller
+        return validLinks
+
     # scrape for email address in provided webpage
     def fetch_email_addresses_by_webpage(self, url):
 
@@ -297,4 +330,4 @@ class Phase4:
         # perform regular expression search on email
         emails = re.findall("([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)", get_source)
         
-        return self.filterLinksForSafeWebpages(emails)
+        return self.filterLinksForSchoolEmailSuffix(emails)
